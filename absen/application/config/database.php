@@ -52,9 +52,9 @@ $active_record = TRUE;
 $db['default']['hostname'] = '10.253.3.61';
 */
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'db_pevita';
+$db['default']['username'] = 'peay1165_pevita';
+$db['default']['password'] = 'Gadai123';
+$db['default']['database'] = 'peay1165_pevita';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
