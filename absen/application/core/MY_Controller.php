@@ -33,6 +33,8 @@ class MY_Controller extends CI_Controller {
 
     //KEHADIRAN
     public $controller_kehadiran       = "kehadiran";
+    //TRACKING BARANG
+    public $controller_tracking_barang      = "tracking";
     
     # ID Controller
     public $setting_id                  = 9000;
@@ -45,6 +47,7 @@ class MY_Controller extends CI_Controller {
     public $lookup_menu_id              = 6003;
 
     public $kehadiran_menu_id           = 1003;
+    public $tracking_barang_id           = 1004;
 
 
     # TBL TEMPLATE
@@ -230,16 +233,12 @@ class MY_Controller extends CI_Controller {
     }
 
     public function cek_login(){
-
         if( $this->session->userdata('user_id')){
             return $this->session->userdata('user_id');
         }
         else{
-
             redirect('login');
-
         }
-
     }
  
 
