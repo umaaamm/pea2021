@@ -47,16 +47,22 @@ class Dashboard extends MY_Controller {
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 		$tanggal_now = date("d-m-Y");
-		$sql = "SELECT tb_kehadiran_pea.id_kehadiran, tb_kehadiran_pea.nik_pegawai, tb_kehadiran_pea.nama, tb_kehadiran_pea.nama_event, tb_kehadiran_pea.no_kursi from tb_kehadiran_pea INNER JOIN tb_event_pea on tb_kehadiran_pea.id_event_pea = tb_event_pea.id_event_pea where tb_event_pea.tanggal_event = '".$tanggal_now."' order by tb_kehadiran_pea.id_kehadiran desc";
+		$sql = "SELECT tb_kehadiran_pea.id_kehadiran, tb_kehadiran_pea.nik_pegawai, tb_kehadiran_pea.nama, tb_kehadiran_pea.nama_event, tb_kehadiran_pea.no_kursi, tb_kehadiran_pea.tanggal_kehadiran, tb_nominasi.nama_nominasi
+		from tb_kehadiran_pea 
+		LEFT JOIN tb_event_pea on tb_kehadiran_pea.id_event_pea = tb_event_pea.id_event_pea 
+		LEFT JOIN tb_pevita_user on tb_kehadiran_pea.nik_pegawai = tb_pevita_user.nik_pegawai
+		LEFT JOIN tb_nominasi on tb_pevita_user.id_nominasi = tb_nominasi.id_nominasi where tb_event_pea.tanggal_event = '".$tanggal_now."' order by tb_kehadiran_pea.id_kehadiran desc";
         $query = $this->db->query($sql);
         $data = [];
             foreach($query->result() as $r) {
+				$datetime = explode(" ",$r->tanggal_kehadiran);
                  $data[] = array(
                       $r->id_kehadiran,
                       $r->nik_pegawai,
                       $r->nama,
-					  $r->nama_event,
+					  $r->nama_nominasi,
 					  $r->no_kursi,
+					  $datetime[1]
                  );
             }
             $ret = array(

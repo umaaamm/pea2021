@@ -48,8 +48,9 @@
                                                    <th>Id</th>
                                                     <th>NIK</th>
                                                     <th>Nama</th>
-                                                    <th>Nama Event</th>
+                                                    <th>Nominasi</th>
                                                     <th>Nomor Kursi</th>
+                                                    <th>Waktu Absen</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

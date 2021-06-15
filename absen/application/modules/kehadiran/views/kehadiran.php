@@ -325,13 +325,11 @@
                                         <table class="table table-striped table-bordered table-hover" id="datatableList">
                                             <thead>
                                                 <tr>
-                                                  <th>Nik - Nama</th>
-                                                  <th>Nama Event</th>
+                                                  <th>NIK - Nama</th>
                                                   <th>No Handphone</th>
-                                                  <th>Jabatan</th>
 												  <th>Unit Kerja</th>
                                                   <th>Tanggal Absen</th>
-                                                  <th>Action</th>
+                                                  <th>Keterangan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -341,9 +339,7 @@
                                             ?>
                                                 <tr>
                                                   <td><?php echo $list['nama']; ?><br><b><?php echo $list['nik_pegawai']; ?><b></td>
-                                                  <td><?php echo $list['nama_event']; ?></td>
                                                   <td><?php echo $list['no_hp']; ?></td>
-                                                  <td><?php echo $list['jabatan']; ?></td> 
 												  <td><?php echo $list['unit_kerja']; ?></td>
                                                   <td><?php echo $list['tanggal_kehadiran']; ?></td>
                                 
