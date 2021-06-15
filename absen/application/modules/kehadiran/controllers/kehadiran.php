@@ -41,19 +41,18 @@ class Kehadiran extends MY_Controller {
         if($data['branch_id']!=null){
             $query_data  = array(
                 'select'    => '*',
-                'from'      => $this->set_kehadiran,
-                'where_field' => 'townhall = '."'".$data['branch_id']."'");
+                'from'      => 'tb_kehadiran_pea',
+                'where_field' => 'id_event_pea = '."'".$data['branch_id']."'");
     
             $data['kehadiran_list'] = $this->model_basic->get_data_join($query_data)->result_array();
         }else{
             $query_data  = array(
                 'select'    => '*',
-                'from'      => $this->set_kehadiran);
+                'from'      => 'tb_kehadiran_pea');
         }
         
-
         $data['kehadiran_list'] = $this->model_basic->get_data_join($query_data)->result_array();
-
+        $data['event_list'] = $this->db->query('select * from tb_event_pea')->result();
         $this->load->view('header', $data);
         $this->load->view('kehadiran');
         $this->load->view('footer');
@@ -63,8 +62,8 @@ class Kehadiran extends MY_Controller {
         $id = $this->input->post('id');
         $query_get_data  = array(
             'select'    => '*',
-            'from'      => $this->set_kehadiran,
-            'where_field' => $this->schema.$this->set_kehadiran.'.nik = '."'".$id."'"
+            'from'      => 'tb_kehadiran_pea',
+            'where_field' => $this->schema.'tb_kehadiran_pea'.'.id_kehadiran = '."'".$id."'"
         );
         
         $data = $this->model_basic->get_data_join($query_get_data)->row();
@@ -92,8 +91,8 @@ class Kehadiran extends MY_Controller {
         $id = $this->input->post('id');
 
         $data = array(
-                'from' => $this->set_kehadiran,
-                'where' => "nik = '".$id."'"
+                'from' => 'tb_kehadiran_pea',
+                'where' => "id_kehadiran = '".$id."'"
             );
         
         $delete    = $this->model_basic_db2->delete_data($data);
@@ -122,22 +121,25 @@ class Kehadiran extends MY_Controller {
     function save_data(){
         $nik            = $this->input->post('nik');
         $nama           = $this->input->post('nama');
-        $townhall           = $this->input->post('townhall');
+        $id_event           = $this->input->post('id_event');
         $hp             = $this->input->post('hp');
-        $rek_tab_emas         = $this->input->post('rek_tab_emas');
-        $id_transaksi_gte     = $this->input->post('id_transaksi_gte');
-
+        $jabatan         = $this->input->post('jabatan');
+        $no_kursi     = $this->input->post('no_kursi');
+        $unit_kerja = $this->input->post('unit_kerja');
+        $sql = "SELECT * from tb_event_pea";
+        $query = $this->db->query($sql)->result_array();
         $save_data = array(
-            'nik'                   => $nik,
-            'nama'                  => $nama,
-            'townhall'              => $townhall,
-            'hp'                    => $hp,
-            'rek_tab_emas'          => $rek_tab_emas,
-            'id_transaksi_gte'      => $id_transaksi_gte,
-            'tanggal'               => date('Y-m-d')
+            'nik_pegawai'   => $nik,
+            'nama'          => $nama,
+            'id_event_pea'  => $id_event,
+            'jabatan'       => $jabatan,
+            'no_hp'         => $hp,
+            'no_kursi'      => $no_kursi,
+            'unit_kerja'    => $unit_kerja,
+            'nama_event'    => $query[0]['nama_event'],
         );
         
-        $save = $this->model_basic->insert_data($this->set_kehadiran,$save_data);
+        $save = $this->model_basic->insert_data('tb_kehadiran_pea',$save_data);
 
         if($save > 0) {
                      $this->returnJson(
@@ -163,22 +165,25 @@ class Kehadiran extends MY_Controller {
     function edit_data(){
         $nik            = $this->input->post('nik');
         $nama           = $this->input->post('nama');
-        $townhall           = $this->input->post('townhall');
+        $id_event           = $this->input->post('id_event');
         $hp             = $this->input->post('hp');
-        $rek_tab_emas         = $this->input->post('rek_tab_emas');
-        $id_transaksi_gte     = $this->input->post('id_transaksi_gte');
-
+        $jabatan         = $this->input->post('jabatan');
+        $no_kursi     = $this->input->post('no_kursi');
+        $unit_kerja = $this->input->post('unit_kerja');
+        $sql = "SELECT * from tb_event_pea";
+        $query = $this->db->query($sql)->result_array();
         $update_data = array(
-            'nik'                   => $nik,
-            'nama'                  => $nama,
-            'townhall'              => $townhall,
-            'hp'                    => $hp,
-            'rek_tab_emas'          => $rek_tab_emas,
-            'id_transaksi_gte'      => $id_transaksi_gte,
-            'tanggal'               => date('Y-m-d')
+            'nik_pegawai'   => $nik,
+            'nama'          => $nama,
+            'id_event_pea'  => $id_event,
+            'jabatan'       => $jabatan,
+            'no_hp'         => $hp,
+            'no_kursi'      => $no_kursi,
+            'unit_kerja'    => $unit_kerja,
+            'nama_event'    => $query[0]['nama_event'],
         );
 
-         $update  = $this->model_basic->update_data($this->set_kehadiran,$update_data,'nik',$nik); 
+         $update  = $this->model_basic->update_data('tb_kehadiran_pea',$update_data,'nik_pegawai',$nik); 
       
         if($update) {
             $this->returnJson(

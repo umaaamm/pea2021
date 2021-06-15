@@ -40,45 +40,36 @@
                             <div class="col-md-12">
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light bordered">
-
                                     <div class="row">
                                     <div class="col-sm-6">
                                         <table id="kehadiran" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                   <th>Seq</th>
-                                                    <th>Nik</th>
+                                                   <th>Id</th>
+                                                    <th>NIK</th>
                                                     <th>Nama</th>
-                                                    
+                                                    <th>Nama Event</th>
+                                                    <th>Nomor Kursi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             </tbody>
-                                            
                                         </table>
                                     </div>
-
                                         <div class="col-sm-4">
-                                            
-                                                <br>
                                                 <div id="main">
                                                     <div id="wrap">
                                                         <video id="preview"></video>
                                                     </div>		
                                                 </div>
-
                                         </div>
                                     </div>
-
-
                                     </div>
-
                                 </div>
                                 <!-- END TABLE PORTLET-->
                            </div>
                         </div>
                         <div class="clearfix"></div>
-                   
                     </div>
                     <!-- END CONTENT BODY -->
                 </div>
@@ -88,7 +79,6 @@
 
 
 <script src="templates/assets/apps/scripts/instascan.min.js" type="text/javascript"></script>
-
 <script type="text/javascript">
 
 $(document).ready(function() {

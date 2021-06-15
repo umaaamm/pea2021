@@ -60,7 +60,6 @@
         });
         
         function save(formData){
-          // alert(method);
           var url = '';
           if (method == 'add') {
             url = '<?php echo $save_data;?>';
@@ -118,10 +117,11 @@
           //########## SET ENABLE FALSE (EDIT BELOW)##########//
           $('#nik').prop('readonly', false);
           $('#nama').prop('readonly', false);
-          $('#townhall').prop('readonly', false);
+          $('#id_event').prop('readonly', false);
           $('#hp').prop('readonly', false);
-          $('#rek_tab_emas').prop('readonly', false);
-          $('#id_transaksi_gte').prop('readonly', false);
+          $('#unit_kerja').prop('readonly', false);
+          $('#no_kursi').prop('readonly', false);
+          $('#jabatan').prop('readonly', false);
           //########## END SET ENABLE FALSE ##########//
         }
 
@@ -147,12 +147,13 @@
                       error.hide();
 
                       //########## SET VALUE FORM EDIT (EDIT BELOW)##########//
-                      $('#nik').val(response.data.nik).prop('readonly', true);
+                      $('#nik').val(response.data.nik_pegawai).prop('readonly', true);
                         $('#nama').val(response.data.nama).prop('readonly', true);
-                        $('#townhall').val(response.data.townhall).prop('readonly', true);
-                        $('#hp').val(response.data.hp).prop('readonly', false);
-                        $('#rek_tab_emas').val(response.data.rek_tab_emas).prop('readonly', false);
-                        $('#id_transaksi_gte').val(response.data.id_transaksi_gte).prop('readonly', false);
+                        $('#id_event').val(response.data.id_event_pea).prop('readonly', true);
+                        $('#hp').val(response.data.no_hp).prop('readonly', false);
+                        $('#unit_kerja').val(response.data.unit_kerja).prop('readonly', false);
+                        $('#no_kursi').val(response.data.no_kursi).prop('readonly', false);
+                        $('#jabatan').val(response.data.jabatan).prop('readonly', false);
                       //########## END SET VALUE FORM EDIT ##########//
                     }
                 }
@@ -238,12 +239,13 @@
                   error.hide();
 
                   //########## SET VALUE FORM VIEW (EDIT BELOW)##########//
-                  $('#nik').val(response.data.nik).prop('readonly', true);
+                  $('#nik').val(response.data.nik_pegawai).prop('readonly', true);
                         $('#nama').val(response.data.nama).prop('readonly', true);
-                        $('#townhall').val(response.data.townhall).prop('readonly', true);
-                        $('#hp').val(response.data.hp).prop('readonly', true);
-                        $('#rek_tab_emas').val(response.data.rek_tab_emas).prop('readonly', true);
-                        $('#id_transaksi_gte').val(response.data.id_transaksi_gte).prop('readonly', true);
+                        $('#id_event').val(response.data.id_event_pea).prop('readonly', true);
+                        $('#hp').val(response.data.no_hp).prop('readonly', true);
+                        $('#unit_kerja').val(response.data.unit_kerja).prop('readonly', true);
+                        $('#no_kursi').val(response.data.no_kursi).prop('readonly', true);
+                        $('#jabatan').val(response.data.jabatan).prop('readonly', true);
                   //########## END SET VALUE FORM VIEW ##########//
                 }
             }
@@ -323,13 +325,12 @@
                                         <table class="table table-striped table-bordered table-hover" id="datatableList">
                                             <thead>
                                                 <tr>
-                                                  <th>NIK</th>
-                                                  <th>Nama</th>
+                                                  <th>Nik - Nama</th>
                                                   <th>Nama Event</th>
+                                                  <th>NO. HANDPHONE</th>
                                                   <th>JABATAN</th>
 												  <th>UNIT KERJA</th>
-												  <th>NO. HANDPHONE</th>
-                                                  <th>Tanggal</th>
+                                                  <th>Tanggal Absen</th>
                                                   <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -339,23 +340,22 @@
                                                 foreach ($kehadiran_list as $list) {
                                             ?>
                                                 <tr>
-                                                  <td><?php echo $list['nik']; ?></td>
-                                                  <td><?php echo $list['nama']; ?></td>
-                                                  <td><?php echo $list['townhall']; ?></td>
-                                                  <td><?php echo $list['hp']; ?></td>
-                                                  <td><?php echo $list['rek_tab_emas']; ?></td> 
-												  <td><?php echo $list['id_transaksi_gte']; ?></td>
-                                                  <td><?php echo $list['tanggal']; ?></td>
+                                                  <td><?php echo $list['nama']; ?><br><b><?php echo $list['nik_pegawai']; ?><b></td>
+                                                  <td><?php echo $list['nama_event']; ?></td>
+                                                  <td><?php echo $list['no_hp']; ?></td>
+                                                  <td><?php echo $list['jabatan']; ?></td> 
+												  <td><?php echo $list['unit_kerja']; ?></td>
+                                                  <td><?php echo $list['tanggal_kehadiran']; ?></td>
                                 
                                                   <td>
                                                       <?php if ($akses['is_view'] == 1) { ?>
-                                                        <button type="button" class="btn blue btn-xs" onclick="viewData(<?php echo "'".$list['nik']."'"; ?>)"><i class="fa fa-search"></i></button>
+                                                        <button type="button" class="btn blue btn-xs" onclick="viewData(<?php echo "'".$list['id_kehadiran']."'"; ?>)"><i class="fa fa-search"></i></button>
                                                       <?php } ?>
                                                       <?php if ($akses['is_edit'] == 1) { ?>
-                                                        <button type="button" class="btn green btn-xs" onclick="editData(<?php echo "'".$list['nik']."'"; ?>)"><i class="fa fa-edit"></i></button>
+                                                        <button type="button" class="btn green btn-xs" onclick="editData(<?php echo "'".$list['id_kehadiran']."'"; ?>)"><i class="fa fa-edit"></i></button>
                                                       <?php } ?>
                                                       <?php if ($akses['is_delete'] == 1) { ?>
-                                                        <button type="button" class="btn red btn-xs" onclick="deleteData(<?php echo "'".$list['nik']."'"; ?>)"><i class="fa fa-trash"></i></button>
+                                                        <button type="button" class="btn red btn-xs" onclick="deleteData(<?php echo "'".$list['id_kehadiran']."'"; ?>)"><i class="fa fa-trash"></i></button>
                                                       <?php } ?>
                                                   </td>
                                                 </tr>
@@ -418,7 +418,13 @@
                                                     <div class="col-sm-10">
                                                         <div class="input-icon right">
                                                             <i class="fa"></i>
-                                                            <input type="text" class="form-control" id="townhall" name="townhall">
+                                                            <select class="form-control" name="id_event" id="id_event">
+                                                                <option value="-">- Pilih Salah Satu -</option>
+                                                                <?php 
+                                                                foreach($event_list as $row):?>
+                                                                    <option value="<?php echo $row->id_event_pea;?>"><?php echo $row->nama_event;?></option>
+                                                                <?php endforeach;?>                                                            
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -427,7 +433,7 @@
                                                     <div class="col-sm-10">
                                                         <div class="input-icon right">
                                                             <i class="fa"></i>
-                                                            <input type="text" class="form-control" id="hp" name="hp">
+                                                            <input type="text" class="form-control" id="jabatan" name="jabatan">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -436,7 +442,7 @@
                                                     <div class="col-sm-10">
                                                         <div class="input-icon right">
                                                             <i class="fa"></i>
-                                                            <input type="text" class="form-control" id="rek_tab_emas" name="rek_tab_emas">
+                                                            <input type="text" class="form-control" id="unit_kerja" name="unit_kerja">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -445,7 +451,16 @@
                                                     <div class="col-sm-10">
                                                         <div class="input-icon right">
                                                             <i class="fa"></i>
-                                                            <input type="text" class="form-control" id="id_transaksi_gte" name="id_transaksi_gte">
+                                                            <input type="text" class="form-control" id="hp" name="hp">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2">Nomor Kursi</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-icon right">
+                                                            <i class="fa"></i>
+                                                            <input type="text" class="form-control" id="no_kursi" name="no_kursi">
                                                         </div>
                                                     </div>
                                                 </div>
