@@ -183,7 +183,7 @@ class Kehadiran extends MY_Controller {
             'nama_event'    => $query[0]['nama_event'],
         );
 
-         $update  = $this->model_basic->update_data('tb_kehadiran_pea',$update_data,'nik_pegawai',$nik); 
+        $update  = $this->model_basic->update_data('tb_kehadiran_pea',$update_data,'nik_pegawai',$nik); 
       
         if($update) {
             $this->returnJson(

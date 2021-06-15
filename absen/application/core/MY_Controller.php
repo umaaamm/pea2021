@@ -28,6 +28,7 @@ class MY_Controller extends CI_Controller {
     //DASHBOARD
     public $controller_dashboard        = "dashboard";
 
+    public $controller_merchandise        = "merchandise";
     //DATA EKSTERNAL
     public $controller_eksternal        = "eksternal";
 
@@ -35,6 +36,8 @@ class MY_Controller extends CI_Controller {
     public $controller_kehadiran       = "kehadiran";
     //TRACKING BARANG
     public $controller_tracking_barang      = "tracking";
+    // LAPORAN MERCHANDISE
+    public $controller_merchandiseLaporan = "merchandiseLaporan";
     
     # ID Controller
     public $setting_id                  = 9000;
@@ -48,6 +51,8 @@ class MY_Controller extends CI_Controller {
 
     public $kehadiran_menu_id           = 1003;
     public $tracking_barang_id           = 1004;
+    public $merchandiseLaporan           = 1006;
+    public $merchandise           = 1005;
 
 
     # TBL TEMPLATE

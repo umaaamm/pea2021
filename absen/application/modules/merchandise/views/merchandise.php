@@ -40,16 +40,15 @@
                             <div class="col-md-12">
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light bordered">
-
                                     <div class="row">
                                     <div class="col-sm-6">
                                         <table id="kehadiran" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                   <th>Seq</th>
+                                                   <th>Id Pengambilan</th>
                                                     <th>Nik</th>
                                                     <th>Nama</th>
-                                                    
+                                                    <th>Tanggal Pengambilan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -57,10 +56,7 @@
                                             
                                         </table>
                                     </div>
-
                                         <div class="col-sm-4">
-                                            
-                                                <br>
                                                 <div id="main">
                                                     <div id="wrap">
                                                         <video id="preview"></video>
@@ -69,16 +65,12 @@
 
                                         </div>
                                     </div>
-
-
                                     </div>
-
                                 </div>
                                 <!-- END TABLE PORTLET-->
                            </div>
                         </div>
                         <div class="clearfix"></div>
-                   
                     </div>
                     <!-- END CONTENT BODY -->
                 </div>
@@ -88,13 +80,12 @@
 
 
 <script src="templates/assets/apps/scripts/instascan.min.js" type="text/javascript"></script>
-
 <script type="text/javascript">
 
 $(document).ready(function() {
     $('#kehadiran').DataTable( {
         "ajax": {
-            url : SITE_URL+'dashboard/dashboard/get_json/',
+            url : SITE_URL+'merchandise/merchandise/get_json/',
             type : 'GET',
         },
         "order": [
@@ -117,7 +108,7 @@ $(document).ready(function() {
 					
 								// ajax adding data to database
 										$.ajax({
-											url : "dashboard/dashboard/act_add",
+											url : "merchandise/merchandise/act_add",
 											type: "POST",
 											data: postData,
 											dataType: "JSON",

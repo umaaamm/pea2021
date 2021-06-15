@@ -327,9 +327,9 @@
                                                 <tr>
                                                   <th>Nik - Nama</th>
                                                   <th>Nama Event</th>
-                                                  <th>NO. HANDPHONE</th>
-                                                  <th>JABATAN</th>
-												  <th>UNIT KERJA</th>
+                                                  <th>No Handphone</th>
+                                                  <th>Jabatan</th>
+												  <th>Unit Kerja</th>
                                                   <th>Tanggal Absen</th>
                                                   <th>Action</th>
                                                 </tr>

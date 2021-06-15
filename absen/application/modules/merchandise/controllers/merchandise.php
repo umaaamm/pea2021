@@ -9,14 +9,14 @@ class Merchandise extends MY_Controller {
 
     public function index(){
         $data                           = $this->data;
-        $menu                           = $this->model_main->get_akses($this->dashboard_menu_id,$data['user_group']);
-        $parent_menu                    = $this->model_main->get_akses($this->dashboard_menu_id,$data['user_group']);
-        $data['akses']                  = $this->get_akses($data['user_id'],$this->dashboard_menu_id);
+        $menu                           = $this->model_main->get_akses($this->merchandise,$data['user_group']);
+        $parent_menu                    = $this->model_main->get_akses($this->merchandise,$data['user_group']);
+        $data['akses']                  = $this->get_akses($data['user_id'],$this->merchandise);
         $data['today_date']             = date('d-m-Y');
-        $data['menu_id']                = $this->dashboard_menu_id;
+        $data['menu_id']                = $this->merchandise;
         $data['menu_nama']              = $menu->menu_nama;
-        $data['menu_controller']        = $this->controller_dashboard;
-        $data['parent_menu_id']         = $this->dashboard_menu_id;
+        $data['menu_controller']        = $this->controller_merchandise;
+        $data['parent_menu_id']         = $this->merchandise;
         $data['parent_menu_nama']       = $parent_menu->menu_nama; 
         $data['parent_menu_controller'] = $this->controller_dashboard; 
         $data['function_nama']          = 'index';
@@ -45,19 +45,18 @@ class Merchandise extends MY_Controller {
         $draw = intval($this->input->get("draw"));
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
-
-        $sql = "SELECT seq, nik, nama from kehadiran where townhall = '".$user['branch_id']."'  order by seq desc";
+        $tanggal_now = date("d-m-Y");
+		$sql = "SELECT tb_merchandise_pea.id_merchandise, tb_merchandise_pea.nik_pegawai, tb_merchandise_pea.nama, tb_merchandise_pea.tanggal_pengambilan from tb_merchandise_pea INNER JOIN tb_event_pea on tb_merchandise_pea.id_event_pea = tb_event_pea.id_event_pea where tb_event_pea.tanggal_event = '".$tanggal_now."' order by tb_merchandise_pea.id_merchandise desc";
         $query = $this->db->query($sql);
         $data = [];
-
             foreach($query->result() as $r) {
                  $data[] = array(
-                      $r->seq,
-                      $r->nik,
-                      $r->nama
+                      $r->id_merchandise,
+                      $r->nik_pegawai,
+                      $r->nama,
+                      $r->tanggal_pengambilan
                  );
             }
-
             $ret = array(
                       "draw" => $draw,
                        "recordsTotal" => $query->num_rows(),
@@ -77,29 +76,21 @@ class Merchandise extends MY_Controller {
 		);
 
 		$decript =  $this->dekripsi($this->input->post('qr'));
-		// print_r($decript);die();
 		$splittedstring=explode("|", $decript);
-		$data['nik'] = $splittedstring[0];
+		$data['nik_pegawai'] = $splittedstring[0];
 		$data['nama'] = $splittedstring[1];
-		$data['rek_tab_emas'] = $splittedstring[2];
-		$data['hp'] = $splittedstring[3];
-		$data['id_transaksi_gte'] = $splittedstring[4];
-        $data['townhall'] = $user['branch_id'];
-		$data['tanggal']= date('Y-m-d');
+		$data['id_event_pea'] = $splittedstring[2];
+		$data['jabatan'] = $splittedstring[3];
+		$data['no_hp'] = $splittedstring[4];
+        $data['no_kursi'] = $splittedstring[5];
+		$data['unit_kerja'] = $splittedstring[6];
+		$data['nama_event'] = $splittedstring[7];
 
 		if(strlen($data['nik']) == 6){
-			$sql = "SELECT * FROM kehadiran where nik='".$data['nik']."'";
-			//$result  = $this->db->select('nik')->from('kehadiran')->where('nik', $data['nik'])->where('townhall', $data['townhall'])->get()->num_rows();
+			$sql = "SELECT * FROM tb_merchandise_pea where nik_pegawai='".$data['nik_pegawai']."'";
 			$cek = $this->db->query($sql)->num_rows();
-			
-			//$this->db->select("nik");
-			//$this->db->where('townhall', $user['branch_id']);
-			//$this->db->where('nik', $data['nik']);
-			//$query2 = $this->db->get('kehadiran')->num_rows();
-			
 			if ($cek<=0){
-				//echo("absen baru");
-				$sukses = $this->db->insert('kehadiran', $data);
+				$sukses = $this->db->insert('tb_merchandise_pea', $data);
 					if($sukses){
 						$ret=array(
 							'success'=>true,
@@ -108,7 +99,6 @@ class Merchandise extends MY_Controller {
 						);	
 					}
 			}  else{
-				//echo("absen sudah dilakukan");
 				$ret=array(
 					'success'=>true,
 					'type'=>'error',
