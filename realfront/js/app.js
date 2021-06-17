@@ -9,6 +9,7 @@ var app = new Framework7({
     routes: routes,
     view: {
         pushState: true,
+        stackPages: true,
     }
 });
 
