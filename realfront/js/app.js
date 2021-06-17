@@ -4,16 +4,16 @@ var $ = Dom7;
 
 // Init App
 var app = new Framework7({
-	root: '#app',
-	theme: 'md',
-	routes: routes,
-	view: {
-		pushState: true,
-	}
+    root: '#app',
+    theme: 'md',
+    routes: routes,
+    view: {
+        pushState: true,
+    }
 });
 
 var mainView = app.views.create('.view-main', {
-	url: './index.html'
+    url: './index.html'
 });
 
 cek();
@@ -63,5 +63,36 @@ function baca() {
         const element = document.getElementById("nama");
         element.innerHTML = data.nama;
         document.getElementById('qrtes').src=data.rootUrl;
+    });
+}
+
+function getKontak() {
+    app.request.json('./php/kontak.php', function (data) {
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var obj = data.data[i];
+            text += '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
+                '<div class="list media-list no-ios-edges">' +
+                '<ul>' +
+                '<li class="item-content">' +
+                '<div class="item-media">' +
+                '<img src="' + obj.foto + '" width="50" height="50" style="border-radius: 50%;" />' +
+                '</div>' +
+                '<div class="item-inner">' +
+                '<div class="item-title-row">' +
+                '<div class="item-title">' + obj.nama + '</div>' +
+                '</div>' +
+                '<div class="item-subtitle">' + obj.bagian + '</div>' +
+                '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:green;color:#ffffff;text-align=left;"><b>' + obj.no_hp + '</b>' + '</div>' +
+                ' </div>' +
+                '</li>' +
+                '</ul>' +
+                '</div>' +
+                '</a>'
+
+        }
+        const elementK = document.getElementById("demo");
+        elementK.innerHTML = text;
     });
 }
