@@ -157,4 +157,13 @@ var routes = [
     path: '/daftar-nominator/',
     url: './daftar-nominator.html',
   },
+
+  {
+    path: '/ubah-password/',
+    componentUrl: './ubah-password.html',
+  },
+  {
+    path: '/update/',
+    pageName: 'update',
+  },
 ];

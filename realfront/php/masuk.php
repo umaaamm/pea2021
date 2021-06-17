@@ -10,10 +10,10 @@ if($banyak >= 1){
 	while($data=mysqli_fetch_object($qry)){
 		$output[]=$data;
 	}
-	$output['pesan']="Berhasil Masuk!";
+	$output['pesan']="Selamat Datang di PEA 2021 :)";
 }
 else{
 	$output['error']=true;
-	$output['pesan']="Gagal Masuk!";
+	$output['pesan']="Login Gagal, Ulangi Proses Login :(";
 }
 echo json_encode($output,JSON_PRETTY_PRINT);

@@ -6,15 +6,16 @@ var $ = Dom7;
 var app = new Framework7({
     root: '#app',
     theme: 'md',
+    name: 'PEA 2021',
     routes: routes,
     view: {
-        pushState: true,
+        // pushState: true,
         stackPages: true,
     }
 });
 
 var mainView = app.views.create('.view-main', {
-    url: './index.html'
+    url: './'
 });
 
 cek();
@@ -97,3 +98,19 @@ function getKontak() {
         elementK.innerHTML = text;
     });
 }
+
+$("#keluar").click(function () {
+    localStorage.removeItem("status");
+    localStorage.removeItem("id");
+    localStorage.removeItem("username");
+    app.dialog.alert("Sampai Jumpa Kembali :)");
+    cek();
+});
+
+$("#ubah-password").click(function () {
+    app.views.main.router.navigate('/update/');
+});
+
+$("#update_password").click(function () {
+    app.dialog.alert("Sampai Jumpa Kembali :)");
+});
