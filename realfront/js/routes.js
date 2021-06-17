@@ -153,6 +153,11 @@ var routes = [
   {
     path: '/nominator/',
     url: './nominator.html',
+    on:{
+      pageInit: function(){
+        getNominasi()
+      }
+    }
   },
   {
     path: '/kontak/',
@@ -164,7 +169,21 @@ var routes = [
     }
   },
   {
-    path: '/daftar-nominator/',
+    path: '/daftar-nominator/:id/',
     url: './daftar-nominator.html',
+    on:{
+      pageInit: function (e, page) {
+        getListNominasi(page.route.params.id)
+      }
+    }
+  },
+  {
+    path: '/getdetailnominasi/:nik/',
+    url: './getdetailnominasi.html',
+    on:{
+      pageInit: function (e, page) {
+        getDetailNominasi(page.route.params.nik)
+      }
+    }
   },
 ];
