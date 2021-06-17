@@ -145,11 +145,6 @@ var routes = [
   {
     path: '/pea/',
     url: './pea.html',
-    on: {
-          pageInit: function (e) {
-          cek()
-        }
-    }
   },
 
   {
