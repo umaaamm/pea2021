@@ -98,11 +98,6 @@ var routes = [
   {
     path: '/edit-profile/',
     url: './edit-profile.html',
-    on: {
-      pageInit: function () {
-        alert('asdalsjdkalsjd')
-      }
-    }
   },
 
   {
@@ -163,17 +158,3 @@ var routes = [
     url: './daftar-nominator.html',
   },
 ];
-
-function cek() {
-  app.request.json('./php/tes.php', function (data) {
-    const tes = document.getElementById("judul_atas");
-    tes.innerHTML = data.nama;
-  });
-}
-
-function function_index() {
-  app.request.json('./php/tes.php', function (data) {
-    const element = document.getElementById("nama");
-    element.innerHTML = data.nama;
-  });
-}
