@@ -17,7 +17,9 @@
 <body>
 	<div id="app">
 		<div class="view view-main view-init ios-edges" data-url="/">
-			<div class="page page-home">
+            <!-- Initial Page, "data-name" contains page name -->
+			<div data-name="home" class="page page-home">
+
 				<div class="toolbar tabbar tabbar-labels toolbar-bottom">
 					<div class="toolbar-inner">
 						<a href="#tab-1" class="tab-link tab-link-active">
@@ -42,6 +44,7 @@
 						</a>
 					</div>
 				</div>
+
 				<div class="tabs page-content">
 					<div id="tab-1" class="tab tab-active">
 						<!-- home -->
@@ -509,6 +512,50 @@
 					</div>
 				</div>
 			</div>
+
+            <!-- Halaman Login-->
+            <div data-name="login" class="page stacked">
+                <!-- Scrollable page content -->
+                <div class="page-content" style="background-color:#0f1c2d">
+                    <div class="block">
+                    	<br>
+                    	<br>
+                    	<br>         
+                    	<br>                    	
+                    	<br>                    	
+                    	<br>                    	           	
+                        <div class="login-screen-title" >Login PEA 2021</div>
+                    	<br>
+                    	<br>
+                    	<br>
+                        <form class="list" id="my-form">
+                                    <div class="item-content item-input" style="background-color:#0f1c2d">
+                                        <div class="item-inner">
+                                            <div class="item-input-wrap">
+                                                <input type="text" name="username" id="username"
+                                                    placeholder="User ID">
+                                            </div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div class="item-content item-input" style="background-color:#0f1c2d">
+                                        <div class="item-inner">
+                                            <div class="item-input-wrap">
+                                                <input type="password" name="password" id="password"
+                                                    placeholder="Kata Sandi">
+                                            </div>
+                                        </div>
+                                    </div>
+                        </form>
+                        <div class="block block-strong row" style="background-color:#0f1c2d">
+                            <div class="col"><a class="button button-fill color-red" href="#" id="masuk">Masuk</a></div>
+                        </div>
+                        <div class="block ">
+                    		<p style="text-align: center"><b>Divisi Budaya Kerja PT Pegadaian Persero</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 

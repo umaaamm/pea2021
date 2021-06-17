@@ -1,15 +1,13 @@
 "use strict";
 var routes = [
   {
-    path: '/index/',
-    Url: './index.html',
-    on: {
-          pageInit: function () {
-            function_index()
-        }
-    }
+    path: '/home/',
+    pageName: 'home',
   },
-
+  {
+    path: '/login/',
+    pageName: 'login',
+  },
   {
     path: '/search/',
     url: './search.html',
@@ -157,17 +155,3 @@ var routes = [
     url: './daftar-nominator.html',
   },
 ];
-
-function cek(){
-    app.request.json('./php/tes.php', function (data) {
-        const tes = document.getElementById("judul_atas");
-        tes.innerHTML = data.nama;
-    });
-}
-
-function function_index(){
-    app.request.json('./php/tes.php', function (data) {
-        const element = document.getElementById("nama");
-        element.innerHTML = data.nama;
-    });
-}
