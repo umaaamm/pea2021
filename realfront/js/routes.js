@@ -141,6 +141,16 @@ var routes = [
   },
 
   {
+    path: '/citytour/',
+    url: './citytour.html',
+  },
+
+  {
+    path: '/oleholeh/',
+    url: './oleholeh.html',
+  },
+
+  {
     path: '/nominator/',
     url: './nominator.html',
   },

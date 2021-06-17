@@ -8,7 +8,7 @@ var app = new Framework7({
     theme: 'md',
     routes: routes,
     view: {
-        pushState: true,
+        // pushState: true,
         stackPages: true,
     }
 });
