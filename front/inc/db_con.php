@@ -1,7 +1,7 @@
 <?php
-    $servername="10.254.2.40";
+    $servername="localhost";
     $username="root";
-    $password="Gadai162!";
+    $password="";
     $database="db_pevita";
     $koneksi=mysqli_connect($servername, $username, $password);
 

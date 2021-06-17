@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+	<title>PEA 2021</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,500i,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/framework7.min.css">
+	<link rel="stylesheet" href="css/framework7-icons.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<div id="app">
+		<div class="view view-main view-init ios-edges" data-url="/">
+			<div class="page page-home">
+				<div class="toolbar tabbar tabbar-labels toolbar-bottom">
+					<div class="toolbar-inner">
+						<a href="#tab-1" class="tab-link tab-link-active">
+							<i class="ti-home"></i>
+							<span class="tabbar-label">Beranda</span>
+						</a>
+						<a href="#tab-2" class="tab-link">
+							<i class="ti-search "></i>
+							<span class="tabbar-label">Tracking</span>
+						</a>
+						<a href="#tab-3" class="tab-link">
+							<i class="ti-layout-menu"></i>
+							<span class="tabbar-label">Presensi</span>
+						</a>
+						<a href="#tab-4" class="tab-link">
+							<i class="ti-info-alt"></i>
+							<span class="tabbar-label">Info</span>
+						</a>
+						<a href="#tab-5" class="tab-link">
+							<i class="ti-settings"></i>
+							<span class="tabbar-label">Akun</span>
+						</a>
+					</div>
+				</div>
+				<div class="tabs page-content">
+					<div id="tab-1" class="tab tab-active">
+						<!-- home -->
+						<!-- navbar home -->
+						<div class="navbar navbar-home">									
+							<div class="navbar-inner sliding">
+								<div class="left">
+									<img src="images/avates.png" alt="">
+								</div>
+								<div class="title">
+									<h6>Selamat Datang</h6>
+									<h5 id="nama" name="nama"></h5>
+								</div>
+							</div>
+						</div>
+						<!-- end navbar home -->
+						<!-- slider -->
+						<div class="slider">
+							<div class="container">
+								<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" class="swiper-container swiper-init swiper-container-horizontal">
+									<div class="swiper-pagination"></div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="content">
+												<img src="images/novotel.jpg" alt="">
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="content">
+												<img src="" alt="" id="qrtes" name="qrtes">
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="content">
+												<img src="images/banner3.jpg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end slider -->
+
+						<!-- categories home -->
+						<div class="categories-home segments">
+							<div class="container">
+								<div class="row">
+									<div class="col-33">
+										<div class="content">
+											<a href="/pea/">
+												<i class="ti-star"></i>
+												<span>PEA</span>
+											</a>
+										</div>
+									</div>
+									<div class="col-33">
+										<div class="content">
+											<a href="/nominator/">
+												<i class="ti-crown"></i>
+												<span>Nominator</span>
+											</a>
+										</div>
+									</div>
+									<div class="col-33">
+										<div class="content">
+											<a href="/categories-details/">
+												<i class="ti-bookmark-alt"></i>
+												<span>Rundown</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-33">
+										<div class="content">
+											<a href="/categories-details/">
+												<i class="ti-direction-alt"></i>
+												<span>Venue</span>
+											</a>
+										</div>
+									</div>
+									<div class="col-33">
+										<div class="content">
+											<a href="/categories-details/">
+												<i class="ti-user"></i>
+												<span>Dresscode</span>
+											</a>
+										</div>
+									</div>
+									<div class="col-33">
+										<div class="content">
+											<a href="/categories-details/">
+												<i class="ti-comments-smiley"></i>
+												<span>Kontak</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end categories home -->
+
+						<!-- divider -->
+						<div class="divider"></div>
+						<!-- end divider -->
+
+						<!-- promotion -->
+						<div class="promotion segments">
+							<div data-space-between="10" data-slides-per-view="auto" class="swiper-container swiper-init demo-swiper-auto">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="first-content">
+											<h4>Sambutan</h4>
+											<p>Sambutan leaders yang mendukung terselenggaranya Pegadaian Exellence Awards Tahun 2021</p>
+											<a href="" class="view-all-link">Selengkapnya<i class="ti-angle-right"></i></a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="content">
+											<img src="images/product1.jpg" alt="">
+											<div class="text">
+												<a href="/sambutan/"><p>Rully</p></a>
+												<span class="price">Jabatan</span>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="content">
+											<img src="images/product2.jpg" alt="">
+											<div class="text">
+												<a href="/sambutan/"><p>Rully</p></a>
+												<span class="price">Jabatan</span>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="content">
+											<img src="images/product3.jpg" alt="">
+											<div class="text">
+												<a href="/sambutan/"><p>Rully</p></a>
+												<span class="price">Jabatan</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end promotion -->
+
+						<!-- divider -->
+						<div class="divider"></div>
+						<!-- end divider -->
+						
+
+						<!-- end home -->
+					</div>
+					<div id="tab-2" class="tab">
+
+						<!-- navbar page -->
+						<div class="navbar navbar-page">
+							<div class="navbar-inner sliding">
+								<div class="title">
+									Tracking
+								</div>
+								<div class="right">
+									<i class="ti-search"></i>
+								</div>
+							</div>
+						</div>
+						<!-- end navbar page -->
+						<!-- tracking dio -->
+				        <div class="order-history segments-page">
+				            <div class="container">
+				                <div class="accordion-list">                    
+				                    <div class="accordion-item accordion-item-opened">
+				                        <div class="accordion-item-toggle">
+				                            Order ID: #952335 <span><i class="ti-check"></i></span>
+				                        </div>
+				                        <div class="accordion-item-content">
+				                            <div class="product-order-wrapper">
+				                                <div class="row">
+				                                    <div class="col-50">
+				                                        <div class="content">
+				                                            <span>Buy Again</span>
+				                                        </div>
+				                                    </div>
+				                                    <div class="col-50">
+				                                        <div class="content">
+				                                            <div class="button">Add to Cart</div>
+				                                        </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+						<!-- end tracking dio -->
+					</div>
+					<div id="tab-3" class="tab">
+
+				    <div class="navbar navbar-page">
+				        <div class="navbar-inner sliding">
+				            <div class="title">
+				                Rundown
+				            </div>
+							<div class="right">
+								<i class="ti-layout-menu"></i>
+							</div>
+				        </div>
+				    </div>
+			        <!-- order history -->
+			        <div class="order-history segments-page">
+			            <div class="container">
+			                <div class="accordion-list">                    
+			                    <div class="accordion-item accordion-item-opened">
+			                        <div class="accordion-item-toggle">
+			                            Hari Ke-1 | asdasd
+			                        </div>
+			                        <div class="accordion-item-content">
+			                            <div class="product-order-wrapper">
+			                                <div class="row">
+			                                    <div class="col-50">
+			                                        <div class="content">
+			                                        </div>
+			                                    </div>
+			                                    <div class="col-50">
+			                                        <div class="content">
+			                                            <div class="button">Absensi QR</div>
+			                                        </div>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                            <div class="info-product-order-wrapper">
+			                                <div class="data-table">
+			                                    <table>
+			                                        <thead>
+			                                            <tr>
+			                                                <th class="label-cell">Shipper</th>
+			                                                <th class="label-cell">Consignee</th>
+			                                            </tr>
+			                                        </thead>
+			                                        <tbody>
+			                                            <tr>
+			                                                <td class="label-cell">John Store</td>
+			                                                <td class="label-cell">John Roe</td>
+			                                            </tr>
+			                                            <tr>
+			                                                <td class="label-cell">California</td>
+			                                                <td class="label-cell">New York</td>
+			                                            </tr>
+			                                        </tbody>
+			                                    </table>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- end order history -->
+					</div>
+
+					<div id="tab-4" class="tab">
+
+						<!-- navbar page -->
+						<div class="navbar navbar-page">
+							<div class="navbar-inner sliding">
+								<div class="title">
+									Informasi
+								</div>
+								<div class="right">
+									<a href=""><i class="ti-info-alt"></i></a>
+								</div>
+							</div>
+						</div>
+						<!-- end navbar page -->
+
+						<!-- informasi dio -->
+				        <div class="categories segments-page">
+				            <div class="container">
+				                <a href="/daftar-nominator/">
+				                    <div class="content section-wrapper">
+				                        <div class="mask"></div>
+				                        <img src="images/categories1.jpg" alt="">
+				                        <div class="title">
+				                            <h3>Tentang PEA 2021</h3>
+				                        </div>
+				                    </div>
+				                </a>
+				                <a href="/categories-details/">
+				                    <div class="content section-wrapper">
+				                        <div class="mask"></div>
+				                        <img src="images/categories2.jpg" alt="">
+				                        <div class="title">
+				                            <h3>Informasi City Tour</h3>
+				                        </div>
+				                    </div>
+				                </a>
+				                <a href="/categories-details/">
+				                    <div class="content section-wrapper">
+				                        <div class="mask"></div>
+				                        <img src="images/categories3.jpg" alt="">
+				                        <div class="title">
+				                            <h3>Informasi Oleh-Oleh</h3>
+				                        </div>
+				                    </div>
+				                </a>
+				            </div>
+				        </div>
+						<!-- end informasi dio -->
+					</div>
+
+					<div id="tab-5" class="tab">
+
+						<!-- navbar page -->
+						<div class="navbar navbar-page">
+							<div class="navbar-inner sliding">
+								<div class="title">
+									My Account
+								</div>
+								<div class="right">
+									<a href="/settings/"><i class="ti-settings"></i></a>
+								</div>
+							</div>
+						</div>
+						<!-- end navbar page -->
+
+						<!-- account buyer -->
+						<div class="account-buyer segments">
+							<div class="header">
+								<div class="mask"></div>
+								<img src="images/banner2.jpg" alt="">
+								<div class="user-caption">
+									<img src="images/comment1.png" alt="">
+									<div class="title-name">
+										<h5>Robin Smith</h5>
+										<a href="/edit-profile/">Edit Profile</a>
+									</div>
+								</div>
+							</div>
+							<div class="info-balance segments">
+								<div class="container">
+									<div class="row">
+										<div class="col-50">
+											<div class="content">
+												<span>Your Balance</span>
+												<h5>$120.00</h5>
+											</div>
+										</div>
+										<div class="col-50">
+											<div class="content">
+												<button class="button">Top Up</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="account-menu">
+								<div class="list links-list">
+									<ul>
+										<li>
+											<a href="/notification/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-bell"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														Notification
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/cart/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-shopping-cart"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														My Cart
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/wishlist/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-heart"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														My Wishlist
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/transaction/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-control-shuffle"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														Transaction
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/settings/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-settings"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														Settings
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/about/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-info-alt"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														About
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/contact/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-email"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														Contact
+													</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="/index/" class="panel-close">
+												<div class="item-media">
+													<i class="ti-power-off"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title">
+														Logout
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- end account buyer -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/framework7.js"></script>
+	<script src="js/routes.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

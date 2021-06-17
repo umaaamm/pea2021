@@ -5,11 +5,11 @@ include 'inc/library.php';
 
 $key = enkripsi(APP_CONST::APP_KEY);
 include 'inc/secretkey.php';
-$seckey = $_GET['q'];
-if ($seckey!=KEY::SECRET_KEY) {
-	echo KEY::PESAN;
-	exit;
-}
+// $seckey = $_GET['q'];
+// if ($seckey!=KEY::SECRET_KEY) {
+// 	echo KEY::PESAN;
+// 	exit;
+// }
 ?>
 
 
@@ -30,7 +30,7 @@ if ($seckey!=KEY::SECRET_KEY) {
 							<img class="preload-image login-bg responsive-image no-bottom" src="images/cover.png" data-src="images/cover.png" alt="img">
 							<img class="preload-image login-image" src="images/login.jpeg" data-src="images/login.jpeg" alt="img">
 							<h3 class="uppercase ultrabold full-top no-bottom">Login</h3>
-							<p class="smaller-text half-bottom" style="margin-top:2px;">Hai! Masukkan NIK, Kata Sandi, dan Tgl Lahir</p>
+							<p class="smaller-text half-bottom" style="margin-top:2px;">Hai! Masasdasdukkan NIK, Kata Sandi, dan Tgl Lahir</p>
 								<!--
 								<div class="formValidationError bg-red-dark" id="usernameError">
 									<p class="center-text uppercase small-text color-white">User ID Harus Diisi</p>

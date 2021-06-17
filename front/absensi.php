@@ -10,7 +10,12 @@ if ($key!=KEY::SECRET_KEY) {
 	exit;
 }
 $id = $_REQUEST['id'];
+// $id = 21;
 $kode_unit_kerja = dekripsi($_SESSION['kode_unit_kerja']);
+
+// var_dump($id);
+// var_dump($kode_unit_kerja);
+// die();
 ?>	
 
 <div id="page-transitions">
@@ -47,15 +52,17 @@ $kode_unit_kerja = dekripsi($_SESSION['kode_unit_kerja']);
 					echo '<div class=\'news-list-item2\'>';
 						//	echo '<form action="generate.php?q='.$key.'" method="post">';
 						include 'inc/db_con.php'; 
-						$result=mysqli_query($koneksi, "SELECT event_name FROM pevita_event  where event_id=$id AND event_kanwil=$kode_unit_kerja AND event_date_end >= curdate()");
+						$result=mysqli_query($koneksi, "SELECT event_name FROM pevita_event  where event_id=$id AND event_kanwil=$kode_unit_kerja");
 						//$result=mysql_query('SELECT * FROM tb_pevita_peserta');
 						
 						while ($row=mysqli_fetch_array($result)){
 							
-							//$no 		= $id_jadwal;
+							$no 		= $id_jadwal;
 							$nama_acara = $row["event_name"];
+							// var_dump($nama_acara);
+							// die();
 							
-						echo '<a href="generate.php?q='.$key.'&id='.$id.'&nama_acara='.$nama_acara.'" type="button" class="buttonWgeneraterap button button-green button-sm button-rounded uppercase ultrabold contactSubmitButton"   >'.$row[event_name].'</a>';
+						echo '<a href="generate.php?q='.$key.'&id='.$id.'&nama_acara='.$nama_acara.'" type="button" class="buttonWgeneraterap button button-green button-sm button-rounded uppercase ultrabold contactSubmitButton"   >'.$row['event_name'].'</a>';
 							//echo '<input type="submit" class="buttonWgeneraterap button button-green button-sm button-rounded uppercase ultrabold contactSubmitButton" id="contactSubmitButton'.$no.'" name="contactSubmitButton'.$no.'" value="'.$row[nama_acara].'" data-formId="contactForm" />';
 							echo '<input type="hidden" name="idjadwal'.$no.'" id="idjadwal'.$no.'" value="'.$id_jadwal.'" />';
 							echo '<input type="hidden" name="namaacara'.$no.'" id="namaacara'.$no.'" value="'.$nama_acara.'" />';
