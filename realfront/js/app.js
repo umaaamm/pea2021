@@ -58,17 +58,17 @@ $("#masuk").click(function () {
                 const nama_header = document.getElementById("nama");
                 nama_header.innerHTML = localStorage.getItem("nama");
 
-                const nama_akun = document.getElementById("nama_akun");
-                nama_akun.innerHTML = localStorage.getItem("nama");
+                // const nama_akun = document.getElementById("nama_akun");
+                // nama_akun.innerHTML = localStorage.getItem("nama");
 
-                const jabatan_akun = document.getElementById("jabatan_akun");
-                jabatan_akun.innerHTML = localStorage.getItem("jabatan");
+                // const jabatan_akun = document.getElementById("jabatan_akun");
+                // jabatan_akun.innerHTML = localStorage.getItem("jabatan");
 
-                const nominasi_akun = document.getElementById("nominasi_akun");
-                nominasi_akun.innerHTML = localStorage.getItem("nama_nominasi");
+                // const nominasi_akun = document.getElementById("nominasi_akun");
+                // nominasi_akun.innerHTML = localStorage.getItem("nama_nominasi");
                 
-                const kursi_akun = document.getElementById("kursi_akun");
-                kursi_akun.innerHTML = localStorage.getItem("no_kursi");
+                // const kursi_akun = document.getElementById("kursi_akun");
+                // kursi_akun.innerHTML = localStorage.getItem("no_kursi");
                 
                 app.dialog.alert(data.pesan);
                 app.views.main.router.navigate('/home/');
@@ -273,4 +273,36 @@ $("#update_password").click(function () {
             }
         }
     });
+});
+
+$("#akun_bottombar").click(function () {
+    var nik_pegawai = localStorage.getItem("nik_pegawai");
+    app.request({
+        url: "./php/getakundetail.php",
+        type: "POST",
+        data: {
+            "nik_pegawai": nik_pegawai,
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                app.dialog.alert("Terjadi Kesalahan");
+            } else {
+                // app.dialog.alert(data[0].nik_pegawai);
+                const nama_akun = document.getElementById("nama_akun");
+                nama_akun.innerHTML = data[0].nama_pegawai;
+
+                const jabatan_akun = document.getElementById("jabatan_akun");
+                jabatan_akun.innerHTML = data[0].jabatan;
+
+                const nominasi_akun = document.getElementById("nominasi_akun");
+                nominasi_akun.innerHTML = data[0].nama_nominasi;
+                
+                const kursi_akun = document.getElementById("kursi_akun");
+                kursi_akun.innerHTML = data[0].no_kursi;
+            }
+        }
+    });
+
 });
