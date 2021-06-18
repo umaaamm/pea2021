@@ -126,11 +126,11 @@ function getNominasi() {
             var obj = data.data[i];
             text += '<a href="/daftar-nominator/'+obj.id_nominasi+'/">' +
             '<div class="content section-wrapper">' +
-            '<div class="mask"></div>' +
+            // '<div class="mask"></div>' +
             '<img src="'+obj.gambar+'" alt="">' +
-            '<div class="title">' +
-            '<h3>'+obj.nama_nominasi+'</h3>' +
-            '</div>' +
+            // '<div class="title">' +
+            // '<h3>'+obj.nama_nominasi+'</h3>' +
+            // '</div>' +
             '</div>' +
             '</a>'
 
