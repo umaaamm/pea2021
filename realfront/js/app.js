@@ -149,7 +149,7 @@ function getListNominasi(id) {
             var obj = data.data[i];
             text += '<a href="/getdetailnominasi/'+obj.nik_pegawai+'/">' +
             '<div class="content">' +
-            '<i class="ti-money"></i>' +
+            '<img src="images/vita/user.png" alt="" width="120px">' +
             '<div class="title-name">' +
             ' <h5>'+obj.nama_pegawai+'</h5>' +
             '<a>'+obj.nm_unit+'</a>' +

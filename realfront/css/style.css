@@ -2095,7 +2095,7 @@ ul li {
     border-radius: 50%;
 }
 .about .content .icon-wrapper img {
-    width: 40px;
+    width: 120px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -2174,6 +2174,19 @@ ul li {
 
 /*notification*/
 .notifi .content i {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: #086D8C;
+    color: #fff;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 18px;
+    float: left;
+}
+.notifi .content img {
     width: 80px;
     height: 80px;
     line-height: 80px;
