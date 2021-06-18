@@ -171,15 +171,18 @@ function getDetailNominasi(nik) {
         //title
         const nama_nominator = document.getElementById("nama_nominator");
         nama_nominator.innerHTML = data.data_detail[0].nama_pegawai;
-        // //nama
-        // const nama = document.getElementById("nama");
-        // nama.innerHTML = data.data_detail[0].nama_pegawai;
-        // // //nominasi
-        // // const nominasi = document.getElementById("nominasi");
-        // // nominasi.innerHTML = data.data_detail[0].nama_nominasi;
-        // //seat no
-        // const seat = document.getElementById("seat");
-        // seat.innerHTML = data.data_detail[0].no_kursi;
+        //nama
+        const nama = document.getElementById("nama_detail");
+        nama.innerHTML = data.data_detail[0].nama_pegawai;
+        // nominasi
+        const nominasi = document.getElementById("nominasi_detail");
+        nominasi.innerHTML = data.data_detail[0].nama_nominasi;
+        // seat no
+        const seat = document.getElementById("kursi_detail");
+        seat.innerHTML = data.data_detail[0].no_kursi;
+        // jabatan
+        const jabatan = document.getElementById("jabatan_detail");
+        jabatan.innerHTML = data.data_detail[0].jabatan;
 
         //for loop list 
         var text = "";
@@ -187,7 +190,7 @@ function getDetailNominasi(nik) {
         for (i = 0; i < data.data.length; i++) {
             var obj = data.data[i];
             text += '<div class="content">' +
-            '<i class="ti-money"></i>' +
+            '<img src="images/vita/user.png" alt="" width="120px">' +
             '<div class="title-name">' +
             ' <h5>'+obj.nama_pegawai+'</h5>' +
             '<a>'+obj.nm_unit+'</a>' +
