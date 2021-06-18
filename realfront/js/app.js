@@ -18,14 +18,13 @@ var mainView = app.views.create('.view-main', {
     url: './'
 });
 
-cek();
-function cek() {
+cek_login();
+function cek_login() {
     var status = localStorage.getItem("status");
     if (status == "login") {
         app.views.main.router.navigate('/home/');
     } else {
         app.views.main.router.navigate('/login/');
-        baca()
     }
 }
 
@@ -44,14 +43,33 @@ $("#masuk").click(function () {
             console.log(data);
             if (data.error) {
                 app.dialog.alert(data.pesan);
-                $("#username").val("");
                 $("#password").val("");
             } else {
                 $("#username").val("");
                 $("#password").val("");
                 localStorage.setItem("status", "login");
-                localStorage.setItem("id", data[0].id_petugas);
-                localStorage.setItem("username", data[0].username);
+                localStorage.setItem("nik_pegawai", data[0].nik_pegawai);
+                localStorage.setItem("nama", data[0].nama_pegawai);
+                localStorage.setItem("jabatan", data[0].jabatan);
+                localStorage.setItem("password", data[0].password);
+                localStorage.setItem("no_kursi", data[0].no_kursi);
+                localStorage.setItem("nama_nominasi", data[0].nama_nominasi);
+
+                const nama_header = document.getElementById("nama");
+                nama_header.innerHTML = localStorage.getItem("nama");
+
+                const nama_akun = document.getElementById("nama_akun");
+                nama_akun.innerHTML = localStorage.getItem("nama");
+
+                const jabatan_akun = document.getElementById("jabatan_akun");
+                jabatan_akun.innerHTML = localStorage.getItem("jabatan");
+
+                const nominasi_akun = document.getElementById("nominasi_akun");
+                nominasi_akun.innerHTML = localStorage.getItem("nama_nominasi");
+                
+                const kursi_akun = document.getElementById("kursi_akun");
+                kursi_akun.innerHTML = localStorage.getItem("no_kursi");
+                
                 app.dialog.alert(data.pesan);
                 app.views.main.router.navigate('/home/');
             }
@@ -60,11 +78,12 @@ $("#masuk").click(function () {
 });
 
 function baca() {
+    alert('baca fungsi')
     app.request.json('./php/tes.php', function (data) {
         console.log(data);
         const element = document.getElementById("nama");
         element.innerHTML = data.nama;
-        document.getElementById('qrtes').src=data.rootUrl;
+        // document.getElementById('qrtes').src=data.rootUrl;
     });
 }
 
@@ -186,10 +205,14 @@ function getDetailNominasi(nik) {
 
 $("#keluar").click(function () {
     localStorage.removeItem("status");
-    localStorage.removeItem("id");
-    localStorage.removeItem("username");
+    localStorage.removeItem("nik_pegawai");
+    localStorage.removeItem("nama");
+    localStorage.removeItem("jabatan");
+    localStorage.removeItem("password");
+    localStorage.removeItem("no_kursi");
+    localStorage.removeItem("nama_nominasi");
     app.dialog.alert("Sampai Jumpa Kembali :)");
-    cek();
+    cek_login();
 });
 
 $("#ubah-password").click(function () {
@@ -197,5 +220,57 @@ $("#ubah-password").click(function () {
 });
 
 $("#update_password").click(function () {
-    app.dialog.alert("Sampai Jumpa Kembali :)");
+    var password_lama = $("#password_lama").val();
+    var password_baru = $("#password_baru").val();
+    var password_konfirmasi = $("#password_konfirmasi").val();
+    var passlama = (localStorage.getItem("password"));
+    var username = (localStorage.getItem("nik_pegawai"));
+    var len = password_baru.length;
+
+
+    if (password_lama == '' || password_baru == '' || password_konfirmasi == '') {
+        app.dialog.alert("Silahkan lengkapi form terlebih dahulu");
+        return;
+    }
+
+    if (password_lama != passlama) {
+        app.dialog.alert("Password lama tidak sesuai");
+        return;
+    }
+
+    if (len < 6) {
+        app.dialog.alert("Password baru minimal 6 karakter");
+        return;        
+    }
+
+    if (password_baru != password_konfirmasi) {
+        app.dialog.alert("Password baru tidak sesuai dengan konfirmasi password");
+        return;
+    }
+
+    app.request({
+        url: "./php/update_password.php",
+        type: "POST",
+        data: {
+            "username": username,
+            "password": password_konfirmasi
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                app.dialog.alert("Password lama tidak sesuai");
+                app.dialog.alert(data.pesan);
+                $("#password_lama").val("");
+                $("#password_baru").val("");
+                $("#password_konfirmasi").val("");
+            } else {
+                $("#password_lama").val("");
+                $("#password_baru").val("");
+                $("#password_konfirmasi").val("");
+                app.dialog.alert(data.pesan);
+                app.views.main.router.navigate('/home/');
+            }
+        }
+    });
 });

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/framework7-icons.css">
 	<link rel="stylesheet" href="css/themify-icons.css">
 	<link rel="stylesheet" href="css/style.css">
-
+	<link rel="shortcut icon" href="images/vita/banner-utama-1.png"/>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 						<div class="navbar navbar-home">
 							<div class="navbar-inner sliding">
 								<div class="left">
-									<img src="images/avates.png" alt="">
+									<img src="images/vita/user.png" alt="">
 								</div>
 								<div class="title">
 									<h6>Selamat Datang</h6>
@@ -63,27 +63,14 @@
 							</div>
 						</div>
 						<!-- end navbar home -->
-						<!-- slider -->
+
+						<!-- slider -->						
 						<div class="slider">
 							<div class="container">
-								<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10"
-									class="swiper-container swiper-init swiper-container-horizontal">
-									<div class="swiper-pagination"></div>
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="content">
-												<img src="images/novotel.jpg" alt="">
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="content">
-												<img src="" alt="" id="qrtes" name="qrtes">
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="content">
-												<img src="images/banner3.jpg" alt="">
-											</div>
+								<div class="swiper-container swiper-init swiper-container-horizontal">
+									<div class="swiper-slide">
+										<div class="content">
+											<img src="images/vita/banner-utama-1.png" alt="">
 										</div>
 									</div>
 								</div>
@@ -170,10 +157,10 @@
 									</div>
 									<div class="swiper-slide">
 										<div class="content">
-											<img src="images/product1.jpg" alt="">
+											<img src="images/vita/banner-sambutan-ridwan.png" alt="">
 											<div class="text">
 												<a href="/sambutan/">
-													<p>Rully</p>
+													<p>Ridwan</p>
 												</a>
 												<span class="price">Jabatan</span>
 											</div>
@@ -181,10 +168,10 @@
 									</div>
 									<div class="swiper-slide">
 										<div class="content">
-											<img src="images/product2.jpg" alt="">
+											<img src="images/vita/banner-sambutan-ridwan.png" alt="">
 											<div class="text">
 												<a href="/sambutan/">
-													<p>Rully</p>
+													<p>Ridwan</p>
 												</a>
 												<span class="price">Jabatan</span>
 											</div>
@@ -192,10 +179,10 @@
 									</div>
 									<div class="swiper-slide">
 										<div class="content">
-											<img src="images/product3.jpg" alt="">
+											<img src="images/vita/banner-sambutan-ridwan.png" alt="">
 											<div class="text">
 												<a href="/sambutan/">
-													<p>Rully</p>
+													<p>Ridwan</p>
 												</a>
 												<span class="price">Jabatan</span>
 											</div>
@@ -338,28 +325,28 @@
 							<div class="container">
 								<a href="/pea/">
 									<div class="content section-wrapper">
-										<div class="mask"></div>
-										<img src="images/categories1.jpg" alt="">
+										<!-- <div class="mask"></div> -->
+										<img src="images/vita/banner-tentang-pea2021.png" alt="">
 										<div class="title">
-											<h3>Tentang PEA 2021</h3>
+											<!-- <h3>Tentang PEA 2021</h3> -->
 										</div>
 									</div>
 								</a>
 								<a href="/citytour/">
 									<div class="content section-wrapper">
-										<div class="mask"></div>
-										<img src="images/categories2.jpg" alt="">
+										<!-- <div class="mask"></div> -->
+										<img src="images/vita/city-tour.png" alt="">
 										<div class="title">
-											<h3>Informasi City Tour</h3>
+											<!-- <h3>Informasi City Tour</h3> -->
 										</div>
 									</div>
 								</a>
 								<a href="/oleholeh/">
 									<div class="content section-wrapper">
-										<div class="mask"></div>
-										<img src="images/categories3.jpg" alt="">
+										<!-- <div class="mask"></div> -->
+										<img src="images/vita/oleh-oleh.png" alt="">
 										<div class="title">
-											<h3>Informasi Oleh-Oleh</h3>
+											<!-- <h3>Informasi Oleh-Oleh</h3> -->
 										</div>
 									</div>
 								</a>
@@ -389,22 +376,21 @@
 				                    <div class="icon-wrapper">
 				                        <img src="images/logo.png" alt="">
 				                    </div>
-				                    <p style="text-align: center">Nama</p>
-				                    <p style="text-align: center">Jabatan</p>
+				                    <p style="text-align: center; font-weight: bold" id="nama_akun"></p>
+				                    <p style="text-align: center" id="jabatan_akun"></p>
 				                    <br>
 
 				                    <p style="text-align: center">Nominasi</p>
-				                    <p style="text-align: center">$NAMA_NOMINASI</p>
+				                    <p style="text-align: center; color: #00ab4e; font-weight: bold" id="nominasi_akun"></p>
 				                    <br>
 
 				                    <p style="text-align: center">Seat No :</p>
-				                    <h1 style="text-align: center; color: #00ab4e" >NO</h1>
+				                    <h1 style="text-align: center; color: #00ab4e; font-weight: bold" id="kursi_akun"></h1>
 
 				                    <br>
 				                    <br>
 		                            <div class="col"><a class="button button-fill color-red" href="#" id="ubah-password">Ganti Kata Sandi</a></div>		     
 		                            <div class="col"><a class="button button-fill color-red" href="#" id="keluar" style="background:#ff0000">Keluar</a></div>		
-
 				                </div>
 		        	        </div>
 				        </div>
@@ -418,13 +404,17 @@
 				<!-- Scrollable page content -->
 				<div class="page-content" style="background-color:#0f1c2d">
 					<div class="block">
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<div class="login-screen-title">Login PEA 2021</div>
+						<div class="slider">
+							<div class="container">
+								<div class="swiper-container swiper-init swiper-container-horizontal">
+									<div class="swiper-slide">
+										<div class="content">
+											<img src="images/vita/logo-PEA-2021.png" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<br>
 						<br>
 						<br>
@@ -436,15 +426,14 @@
 									</div>
 								</div>
 							</div>
-
-                                    <div class="item-content item-input" style="background-color:#0f1c2d">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="password" name="password" id="password"
+                            <div class="item-content item-input" style="background-color:#0f1c2d">
+                                <div class="item-inner">
+                                    <div class="item-input-wrap">
+                                            <input type="password" name="password" id="password"
                                                     placeholder="Kata Sandi">
-                                            </div>
-                                        </div>
                                     </div>
+                                </div>
+                            </div>
                         </form>
                         <div class="block block-strong row" style="background-color:#0f1c2d">
                             <div class="col"><a class="button button-fill color-red" href="#" id="masuk">Masuk</a></div>
@@ -458,42 +447,41 @@
 
             <!-- Halaman Update-->
             <div data-name="update" class="page stacked">
-                <!-- Scrollable page content -->
-    <div class="page" data-name="form">
-        <div class="navbar navbar-page">
-            <div class="navbar-inner sliding">
-                <div class="left">
-                    <a href="#" class="link back">
-                        <i class="ti-arrow-left"></i>
-                    </a>
-                </div>
-                <div class="title">
-                    Ubah Password
-                </div>
-            </div>
-        </div>
-        <div class="page-content">
-            <!-- contact -->
-            <div class="contact segments-page">
-                <div class="container">
-                    <form class="list" id="my-form">
-                        <div class="item-input-wrap">
-                            <input type="password" name="password_lama" id="password_lama" placeholder="Kata Sandi Lama">
-                        </div>
-                        <div class="item-input-wrap">
-                            <input type="password" name="password_baru" id="password_baru" placeholder="Kata Sandi Baru">
-                        </div>
-                        <div class="item-input-wrap">
-                            <input type="password" name="password_konfirmasi" id="password_konfirmasi" placeholder="Konfirmasi Kata Sandi Baru">
-                        </div>
-                    </form>
-                              <div class="col"><a class="button button-fill color-red" href="#" id="update_password">Simpan</a></div>
+			    <div class="page" data-name="form">
+			        <div class="navbar navbar-page">
+			            <div class="navbar-inner sliding">
+			                <div class="left">
+			                    <a href="#" class="link back">
+			                        <i class="ti-arrow-left"></i>
+			                    </a>
+			                </div>
+			                <div class="title">
+			                    Ubah Password
+			                </div>
+			            </div>
+			        </div>
+			        <div class="page-content">
+			            <!-- contact -->
+			            <div class="contact segments-page">
+			                <div class="container">
+			                    <form class="list" id="my-form">
+			                        <div class="item-input-wrap">
+			                            <input type="password" name="password_lama" id="password_lama" placeholder="Kata Sandi Lama">
+			                        </div>
+			                        <div class="item-input-wrap">
+			                            <input type="password" name="password_baru" id="password_baru" placeholder="Kata Sandi Baru">
+			                        </div>
+			                        <div class="item-input-wrap">
+			                            <input type="password" name="password_konfirmasi" id="password_konfirmasi" placeholder="Konfirmasi Kata Sandi Baru">
+			                        </div>
+			                    </form>
+			                              <div class="col"><a class="button button-fill color-red" href="#" id="update_password">Simpan</a></div>
 
-                </div>
-            </div>
-            <!-- end contact -->
-        </div>
-    </div>
+			                </div>
+			            </div>
+			            <!-- end contact -->
+			        </div>
+			    </div>
             </div>
 		</div>
 	</div>
