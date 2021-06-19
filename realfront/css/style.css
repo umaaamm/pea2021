@@ -1777,8 +1777,8 @@ ul li {
     color: #333;
 }
 .md .order-history .accordion-list .accordion-item .accordion-item-toggle span {
-    float: right;
-    line-height: 35px;
+/*    float: right;
+    line-height: 35px;*/
 }
 .md .order-history .accordion-list .accordion-item .accordion-item-toggle span i {
     color: #086D8C;

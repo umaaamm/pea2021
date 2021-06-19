@@ -20,7 +20,9 @@ var mainView = app.views.create('.view-main', {
 
 cek_login();
 function cek_login() {
-    var status = localStorage.getItem("status");
+    console.log('cek_login');
+    fill_userdata();
+    var status = sessionStorage.getItem("status");
     if (status == "login") {
         app.views.main.router.navigate('/home/');
     } else {
@@ -48,6 +50,7 @@ $("#masuk").click(function () {
                 $("#username").val("");
                 $("#password").val("");
                 localStorage.setItem("status", "login");
+                sessionStorage.setItem("status", "login");
                 localStorage.setItem("nik_pegawai", data[0].nik_pegawai);
                 localStorage.setItem("nama", data[0].nama_pegawai);
                 localStorage.setItem("jabatan", data[0].jabatan);
@@ -59,8 +62,8 @@ $("#masuk").click(function () {
                 var start = today.getHours();
                 localStorage.setItem("jam_login", start);
 
-                const nama_header = document.getElementById("nama");
-                nama_header.innerHTML = localStorage.getItem("nama");
+                // const nama_header = document.getElementById("nama");
+                // nama_header.innerHTML = localStorage.getItem("nama");
 
                 // const nama_akun = document.getElementById("nama_akun");
                 // nama_akun.innerHTML = localStorage.getItem("nama");
@@ -75,6 +78,7 @@ $("#masuk").click(function () {
                 // kursi_akun.innerHTML = localStorage.getItem("no_kursi");
                 
                 app.dialog.alert(data.pesan);
+                fill_userdata();
                 app.views.main.router.navigate('/home/');
             }
         }
@@ -213,7 +217,9 @@ $("#keluar").click(function () {
     localStorage.removeItem("password");
     localStorage.removeItem("no_kursi");
     localStorage.removeItem("nama_nominasi");
+    localStorage.removeItem("jam_login");
     app.dialog.alert("Sampai Jumpa Kembali :)");
+    sessionStorage.removeItem("status");
     cek_login();
 });
 
@@ -278,6 +284,7 @@ $("#update_password").click(function () {
 });
 
 $("#akun_bottombar").click(function () {
+    console.log('get_akun_detail')
     var nik_pegawai = localStorage.getItem("nik_pegawai");
     app.request({
         url: "./php/getakundetail.php",
@@ -324,3 +331,199 @@ function cek_session () {
 }
 
 var interval = setInterval(function () { cek_session(); }, 50000);
+
+function fill_userdata() {
+    console.log(localStorage.getItem("nama"));
+    console.log(localStorage.getItem("jam_login"));
+    console.log(sessionStorage.getItem("status"));
+
+    //fill nama di selamat datang
+    const nama_header = document.getElementById("nama");
+    nama_header.innerHTML = localStorage.getItem("nama");
+}
+
+$("#rundown1").click(function () {
+    var id='10';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-1-tab");
+        elementK.innerHTML = text;
+    });  
+});
+
+$("#rundown2").click(function () {
+    var id='11';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-2-tab");
+        elementK.innerHTML = text;
+    });  
+});
+
+$("#rundown3").click(function () {
+    var id='12';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-3-tab");
+        elementK.innerHTML = text;
+    });  
+});
+
+$("#rundown4").click(function () {
+    var id='13';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-4-tab");
+        elementK.innerHTML = text;
+    });  
+});
+
+$("#rundown5").click(function () {
+    var id='20';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Note: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-5-tab");
+        elementK.innerHTML = text;
+    });  
+});
+
+$("#rundown6").click(function () {
+    var id='30';
+    app.request.json('./php/getrundown.php?id='+id, function (data) {
+        console.log('data',data);
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+            '<div class="accordion-item-toggle">' +
+                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+            '</div>' +
+            '<div class="data-table">' +
+                '<table>' +
+                    '<tbody>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell"> Note: '+obj.keterangan_2+'</td>' +
+                        '</tr>' +
+                    '</tbody>' +
+                '</table>' +
+            '</div>'
+        }
+        const elementK = document.getElementById("rundown-6-tab");
+        elementK.innerHTML = text;
+    });  
+});
