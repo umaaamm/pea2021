@@ -2173,7 +2173,7 @@ ul li {
 }
 
 /*notification*/
-.notifi .content i {
+/*.notifi .content i {
     width: 80px;
     height: 80px;
     line-height: 80px;
@@ -2185,7 +2185,7 @@ ul li {
     margin-right: 15px;
     font-size: 18px;
     float: left;
-}
+}*/
 .notifi .content img {
     width: 80px;
     height: 80px;
@@ -2200,7 +2200,7 @@ ul li {
     float: left;
 }
 .notifi .content p {
-    color: #00ab4e;
+    color: #444;
 }
 .notifi .content .title-name {
     overflow: hidden;

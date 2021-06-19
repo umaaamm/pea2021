@@ -97,24 +97,19 @@ function getKontak() {
         var i = "";
         for (i = 0; i < data.data.length; i++) {
             var obj = data.data[i];
-            text += '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
-                '<div class="list media-list no-ios-edges">' +
-                '<ul>' +
-                '<li class="item-content">' +
-                '<div class="item-media">' +
-                '<img src="' + obj.foto + '" width="50" height="50" style="border-radius: 50%;" />' +
+            text += 
+                '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
+                '<div class="content">' +
+                '<img src="' + obj.foto + '" alt="" width="120px" />' +
+                    '<div class="title-name">' +
+                        '<h5>' + obj.nama + '</h5>' +
+                        '<h5>' + obj.bagian + '</h5>' +
+                        '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:#00ab4e;color:#ffffff;text-align=left;"><b>' + obj.no_hp + ' [Klik untuk menghubungi]</b>' + '</div>' +
+                        // '<div class="button" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:#00ab4e;color:#ffffff;text-align=left;"><b>' + obj.no_hp + ' [Klik untuk menghubungi]</b>' + '</div>' +
+                    '</div>' +
                 '</div>' +
-                '<div class="item-inner">' +
-                '<div class="item-title-row">' +
-                '<div class="item-title">' + obj.nama + '</div>' +
-                '</div>' +
-                '<div class="item-subtitle">' + obj.bagian + '</div>' +
-                '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:green;color:#ffffff;text-align=left;"><b>' + obj.no_hp + '</b>' + '</div>' +
-                ' </div>' +
-                '</li>' +
-                '</ul>' +
-                '</div>' +
-                '</a>'
+                '</a>' +
+                '<div class="small-divider"></div>'
 
         }
         const elementK = document.getElementById("demo");
@@ -328,4 +323,4 @@ function cek_session () {
     console.log(jam_login);
 }
 
-var interval = setInterval(function () { cek_session(); }, 10000);
+var interval = setInterval(function () { cek_session(); }, 50000);
