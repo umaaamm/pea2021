@@ -55,6 +55,10 @@ $("#masuk").click(function () {
                 localStorage.setItem("no_kursi", data[0].no_kursi);
                 localStorage.setItem("nama_nominasi", data[0].nama_nominasi);
 
+                var today = new Date();
+                var start = today.getHours();
+                localStorage.setItem("jam_login", start);
+
                 const nama_header = document.getElementById("nama");
                 nama_header.innerHTML = localStorage.getItem("nama");
 
@@ -307,5 +311,21 @@ $("#akun_bottombar").click(function () {
             }
         }
     });
-
 });
+
+$("#tab-rundown").click(function () {
+    app.views.main.router.navigate('#tab-3');
+});
+
+function cek_session () {
+    console.log('cek session');
+    var jam_login = localStorage.getItem("jam_login");
+
+    var today = new Date();
+    var jam_sekarang = today.getHours();
+
+    console.log(jam_sekarang);
+    console.log(jam_login);
+}
+
+var interval = setInterval(function () { cek_session(); }, 10000);

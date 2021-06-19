@@ -195,4 +195,33 @@ var routes = [
     path: '/update/',
     pageName: 'update',
   },
+  {
+    path: '/venue/',
+    url: './venue.html',
+  },
+
+  {
+    path: '/venue-a/',
+    url: './venue-a.html',
+  },
+  {
+    path: '/venue-b/',
+    url: './venue-b.html',
+  },
+  {
+    path: '/venue-c/',
+    url: './venue-c.html',
+  },
+  {
+    path: '/venue-d/',
+    url: './venue-d.html',
+  },
+  {
+    path: '/venue-e/',
+    url: './venue-e.html',
+  },
+  {
+    path: '/dresscode/',
+    url: './dresscode.html',
+  },
 ];
