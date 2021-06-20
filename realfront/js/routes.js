@@ -224,4 +224,8 @@ var routes = [
     path: '/dresscode/',
     url: './dresscode.html',
   },
+  {
+    path: '/absensi/',
+    pageName: 'absensi',
+  },
 ];
