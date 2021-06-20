@@ -12,7 +12,7 @@
 	    $sql_detail[] = $row1;
 	}
 
-    $random = rand(1,1);
+    $random = rand(1,29);
 	$cari = mysqli_query($koneksi, "SELECT * FROM tb_pevita_user INNER JOIN tb_nominasi on tb_pevita_user.id_nominasi = tb_nominasi.id_nominasi where tb_pevita_user.id_nominasi='$random'");
     while ($row = mysqli_fetch_object($cari)) {
 	    $sql[] = $row;
