@@ -87,7 +87,7 @@ $("#masuk").click(function () {
 
 function baca() {
     alert('baca fungsi')
-    app.request.json('./php/tes.php', function (data) {
+    app.request.json('./php/generateabsen.php', function (data) {
         console.log(data);
         const element = document.getElementById("nama");
         element.innerHTML = data.nama;
@@ -526,4 +526,154 @@ $("#rundown6").click(function () {
         const elementK = document.getElementById("rundown-6-tab");
         elementK.innerHTML = text;
     });  
+});
+
+$("#rundown1-btn").click(function () {
+    var id = 10;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
+});
+
+$("#rundown2-btn").click(function () {
+    var id = 11;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
+});
+
+$("#rundown3-btn").click(function () {
+    var id = 12;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
+});
+
+$("#rundown4-btn").click(function () {
+    var id = 13;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
+});
+
+$("#rundown5-btn").click(function () {
+    var id = 20;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
+});
+
+$("#rundown6-btn").click(function () {
+    var id = 30;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generateabsen.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrtes').src=data.rootUrl;
+
+        const nom = document.getElementById("nominasi_qr");
+        nom.innerHTML = data.nominasi_nama;
+
+        const seat = document.getElementById("kursi_qr");
+        seat.innerHTML = data.no_kursi;
+
+        const event = document.getElementById("nama_event");
+        event.innerHTML = data.nama_event;
+    });
+    app.views.main.router.navigate('/absensi/');
 });
