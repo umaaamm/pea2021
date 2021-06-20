@@ -108,7 +108,7 @@ function getKontak() {
                     '<div class="title-name">' +
                         '<h5>' + obj.nama + '</h5>' +
                         '<h5>' + obj.bagian + '</h5>' +
-                        '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:#00ab4e;color:#ffffff;text-align=left;"><b>' + obj.no_hp + ' [Klik untuk menghubungi]</b>' + '</div>' +
+                        '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:#00ab4e;color:#ffffff;text-align=left;"><b>' + obj.no_hp + '</div>' +
                         // '<div class="button" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:12px;background-color:#00ab4e;color:#ffffff;text-align=left;"><b>' + obj.no_hp + ' [Klik untuk menghubungi]</b>' + '</div>' +
                     '</div>' +
                 '</div>' +
