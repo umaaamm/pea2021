@@ -7,7 +7,7 @@
 	header("Access-Control-Allow-Headers: x-requested-with, x-requested-by");
 	include("koneksi.php");
 	$data = array();
-	$cari = mysqli_query($koneksi, "SELECT * FROM tb_kontak where bagian='Pengambilan Bagasi'");
+	$cari = mysqli_query($koneksi, "SELECT * FROM tb_kontak where bagian='Pengambilan Bagasi' or bagian='Transportasi (Penjemputan & Pengantaran)'");
     while ($row = mysqli_fetch_object($cari)) {
 	    $sql[] = $row;
 	}
