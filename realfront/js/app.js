@@ -102,7 +102,7 @@ function getKontak() {
         for (i = 0; i < data.data.length; i++) {
             var obj = data.data[i];
             text += 
-                '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
+                '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '"">' +
                 '<div class="content">' +
                 '<img src="' + obj.foto + '" alt="" width="120px" />' +
                     '<div class="title-name">' +
