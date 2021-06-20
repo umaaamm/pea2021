@@ -7,7 +7,7 @@
 	header("Access-Control-Allow-Headers: x-requested-with, x-requested-by");
 	include("koneksi.php");
 	$data = array();
-	$cari = mysqli_query($koneksi, "SELECT * FROM tb_pevita_user INNER JOIN tb_sub_kategori on tb_pevita_user.id_nominasi = tb_sub_kategori.id_kategori INNER JOIN tb_nominasi on tb_sub_kategori.id_nominasi = tb_nominasi.id_nominasi where tb_sub_kategori.id_kategori='".$_GET['id']."' ");
+	$cari = mysqli_query($koneksi, "SELECT * FROM tb_sub_kategori where id_nominasi='".$_GET['id_nominasi']."' ");
     while ($row = mysqli_fetch_object($cari)) {
 	    $sql[] = $row;
 	}

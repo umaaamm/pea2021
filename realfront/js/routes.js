@@ -178,6 +178,16 @@ var routes = [
     }
   },
   {
+    path: '/kategori/:id_nominasi/',
+    url: './kategori.html',
+    on:{
+      pageInit: function (e, page) {
+        console.log("ksini");
+        getKategori(page.route.params.id_nominasi)
+      }
+    }
+  },
+  {
     path: '/getdetailnominasi/:nik/',
     url: './getdetailnominasi.html',
     on:{

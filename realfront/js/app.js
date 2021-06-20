@@ -127,7 +127,10 @@ function getNominasi() {
         var i = "";
         for (i = 0; i < data.data.length; i++) {
             var obj = data.data[i];
-            text += '<a href="/daftar-nominator/'+obj.id_nominasi+'/">' +
+            if(obj.id_nominasi == '11' || obj.id_nominasi == '12'){
+                continue;
+            }
+            text += '<a href="/kategori/'+obj.id_nominasi+'/">' +
             '<div class="content section-wrapper">' +
             // '<div class="mask"></div>' +
             '<img src="'+obj.gambar+'" alt="">' +
@@ -139,6 +142,28 @@ function getNominasi() {
 
         }
         const elementK = document.getElementById("nominasi");
+        elementK.innerHTML = text;
+    });
+}
+
+function getKategori(id_nominasi) {
+    app.request.json('./php/kategori.php?id_nominasi='+id_nominasi, function (data) {
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var obj = data.data[i];
+            text += '<a href="/daftar-nominator/'+obj.id_kategori+'/">' +
+            '<div class="content section-wrapper">' +
+            // '<div class="mask"></div>' +
+            '<img src="'+obj.gambar_kategori+'" alt="">' +
+            // '<div class="title">' +
+            // '<h3>'+obj.nama_nominasi+'</h3>' +
+            // '</div>' +
+            '</div>' +
+            '</a>'
+
+        }
+        const elementK = document.getElementById("kategori");
         elementK.innerHTML = text;
     });
 }
@@ -157,7 +182,7 @@ function getListNominasi(id) {
             ' <h5>'+obj.nama_pegawai+'</h5>' +
             '<a>'+obj.nm_unit+'</a>' +
             '<p>Kategori:</p>' +
-            ' <p>'+obj.nama_nominasi+'</p>' +
+            ' <p>'+obj.nama_ketegori+'</p>' +
             '</div>' +
             '</div></a><br>'+
             '<div class="small-divider"></div>'
@@ -180,6 +205,9 @@ function getDetailNominasi(nik) {
         // nominasi
         const nominasi = document.getElementById("nominasi_detail");
         nominasi.innerHTML = data.data_detail[0].nama_nominasi;
+        // kategori
+        const kategori = document.getElementById("kategori_detail");
+        kategori.innerHTML = data.data_detail[0].nama_ketegori;
         // seat no
         const seat = document.getElementById("kursi_detail");
         seat.innerHTML = data.data_detail[0].no_kursi;
@@ -198,7 +226,7 @@ function getDetailNominasi(nik) {
             ' <h5>'+obj.nama_pegawai+'</h5>' +
             '<a>'+obj.nm_unit+'</a>' +
             '<p>Kategori:</p>' +
-            ' <p>'+obj.nama_nominasi+'</p>' +
+            ' <p>'+obj.nama_ketegori+'</p>' +
             '</div>' +
             '</div><br>'+
             '<div class="small-divider"></div>'
