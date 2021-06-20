@@ -28,7 +28,7 @@
 							<i class="ti-home"></i>
 							<span class="tabbar-label">Beranda</span>
 						</a>
-						<a href="#tab-2" class="tab-link">
+						<a href="#tab-2" class="tab-link" id="tracking_bottombar">
 							<i class="ti-search "></i>
 							<span class="tabbar-label">Tracking</span>
 						</a>
@@ -220,29 +220,23 @@
 						<!-- tracking dio -->
 						<div class="order-history segments-page">
 							<div class="container">
+				                <div class="content"> 
+				                    <div class="title-name">
+				                        <h5>Selamat Datang di Bali</h5>
+				                        <p style="text-align: justify">Kami akan membantu barang bawaan anda</p>
+				                    </div>
+				                </div>
+				                <br>
 								<div class="accordion-list">
 									<div class="accordion-item accordion-item-opened">
 										<div class="accordion-item-toggle">
-											Order ID: #952335 <span><i class="ti-check"></i></span>
+											Daftar Barang <span><i class="ti-bag"></i></span>
 										</div>
-										<div class="accordion-item-content">
-											<div class="product-order-wrapper">
-												<div class="row">
-													<div class="col-50">
-														<div class="content">
-															<span>Buy Again</span>
-														</div>
-													</div>
-													<div class="col-50">
-														<div class="content">
-															<div class="button">Add to Cart</div>
-														</div>
-													</div>
-												</div>
-											</div>
+										<div class="accordion-item-content" id="list-barang-register">
 										</div>
 									</div>
 								</div>
+	                            <div class="col"><a class="button button-fill color-red" href="#" id="generate-no">Generate Nomor Penitipan</a></div>
 							</div>
 						</div>
 						<!-- end tracking dio -->
@@ -501,7 +495,7 @@
 
 				                    <br>
 				                    <br>
-		                            <div class="col"><a class="button button-fill color-red" href="#" id="ubah-password">Ganti Kata Sandi</a></div>		     
+		                            <div class="col"><a class="button button-fill color-red" href="#" id="ubah-password">Ganti Kata Sandi</a></div>
 		                            <div class="col"><a class="button button-fill color-red" href="#" id="keluar" style="background:#ff0000">Keluar</a></div>		
 				                </div>
 		        	        </div>
@@ -637,6 +631,45 @@
 				                            </div>
 				                        </div>
 				    </div>
+			    </div>
+            </div>
+
+            <!-- Halaman Tracking-->
+            <div data-name="registerbarang" class="page stacked">
+			    <div class="page" data-name="form">
+			        <div class="navbar navbar-page">
+			            <div class="navbar-inner sliding">
+			                <div class="left">
+			                    <a href="#" class="link back">
+			                        <i class="ti-arrow-left"></i>
+			                    </a>
+			                </div>
+			                <div class="title">
+			                    Input Tracking
+			                </div>
+			            </div>
+			        </div>
+			        <div class="page-content">
+			            <!-- contact -->
+			            <div class="contact segments-page">
+			                <div class="container">
+			                    <form class="list" id="my-form-tracking">
+		                        	<p>Keterangan Barang : </p>
+			                        <div class="item-input-wrap">
+			                            <input type="text" name="keterangan_barang" id="keterangan_barang" placeholder="Masukkan Keterangan Barang">
+			                        </div>
+
+		                        	<p>Nama Petugas Yang Mengambil : </p>
+			                        <div class="item-input-wrap input-dropdown-wrap">
+			                            <select id="list_petugas_tracking" name="list_petugas_tracking">
+			                            </select>
+			                        </div>
+			                    </form>
+			                    <div class="col"><a class="button button-fill color-red" href="#" id="register_barang">Simpan</a></div>
+			                </div>
+			            </div>
+			            <!-- end contact -->
+			        </div>
 			    </div>
             </div>
 		</div>

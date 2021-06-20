@@ -228,4 +228,18 @@ var routes = [
     path: '/absensi/',
     pageName: 'absensi',
   },
+  {
+    path: '/registerbarang/',
+    pageName: 'registerbarang',
+  },
+
+  {
+    path: '/getdetailtracking/:id_tracking/',
+    url: './getdetailtracking.html',
+    on:{
+      pageInit: function (e, page) {
+        getDetailTracking(page.route.params.id_tracking)
+      }
+    }
+  },
 ];

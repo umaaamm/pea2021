@@ -677,3 +677,257 @@ $("#rundown6-btn").click(function () {
     });
     app.views.main.router.navigate('/absensi/');
 });
+
+$("#generate-no").click(function () {
+    app.request.json('./php/getpetugastracking.php', function (data) {
+        console.log('data',data);
+        var text = '<option value="" disabled selected>--Pilih Petugas--</option>';
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var count = 1+i;
+            var obj = data.data[i];
+            text += 
+                '<option value="'+obj.id_kontak+'">'+obj.nama+'</option>'
+        }
+        const dropdown = document.getElementById("list_petugas_tracking");
+        dropdown.innerHTML = text;
+    });
+    app.views.main.router.navigate('/registerbarang/');
+});
+
+$("#register_barang").click(function () {
+    var keterangan_barang = $("#keterangan_barang").val();
+    var list_petugas_tracking = $("#list_petugas_tracking").val();
+    var nik_pegawai = localStorage.getItem("nik_pegawai");
+
+    if (keterangan_barang == '' || list_petugas_tracking == '') {
+        app.dialog.alert('Lengkapi form register barang terlebih dahulu');
+        return;
+    }
+
+    app.request({
+        url: "./php/register_barang.php",
+        type: "POST",
+        data: {
+            "keterangan_barang": keterangan_barang,
+            "list_petugas_tracking": list_petugas_tracking,
+            "nik_pegawai": nik_pegawai,
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                app.dialog.alert("Terjadi Kesalahan");
+                $("#keterangan_barang").val("");
+                $("#list_petugas_tracking").val("");
+            } else {
+                $("#keterangan_barang").val("");
+                $("#list_petugas_tracking").val("");
+                $("#password_konfirmasi").val("");
+                app.dialog.alert('Berhasil register barang');
+                load_barang();
+                app.views.main.router.navigate('/home/');
+            }
+        }
+    });
+});
+
+function load_barang() {
+    var nik_pegawai = localStorage.getItem("nik_pegawai");
+    app.request.json('./php/getbarangtracking.php?nik_pegawai='+nik_pegawai, function (data) {
+        console.log('data detail',data);
+        //for loop list 
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var obj = data.data[i];
+            text += 
+
+                '<div class="product-order-wrapper">'+
+                    '<div class="row">'+
+                        '<div class="col-70">'+
+                            '<div class="content">'+
+                                '<span style="color: #00ab4e;">No Bagasi : ' + obj.no_bagasi + '</span>'+
+                                '<br>'+
+                                '<span>Deskripsi : ' + obj.keterangan + '</span>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="col-30">'+
+                            '<div class="content">'+
+                                // '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
+                                '<a href="/getdetailtracking/'+obj.id_tracking+'/"><div class="button">Tracking</div></a>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'
+
+        }
+        const elementK = document.getElementById("list-barang-register");
+        elementK.innerHTML = text;
+    });
+}
+
+$("#tracking_bottombar").click(function () {
+    load_barang()
+});
+
+function getDetailTracking(id_tracking) {
+    app.request.json('./php/getbarangtrackingdetail.php?id_tracking='+id_tracking, function (data) {
+        console.log('data',data);
+
+        const elementK = document.getElementById("deskripsi-barang");
+        elementK.innerHTML = data.data[0].keterangan+' ['+data.data[0].no_bagasi+']';
+
+        if (data.data[0].status == 1) {
+        const status = document.getElementById("status-barang");
+        status.innerHTML =         
+            '<div class="content">'+
+               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                   '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'
+        } else if (data.data[0].status == 2) {
+        const status = document.getElementById("status-barang");
+        status.innerHTML =         
+            '<div class="content">'+
+               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                   '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>' +
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'    
+        } else if (data.data[0].status == 3) {
+        const status = document.getElementById("status-barang");
+        status.innerHTML =         
+            '<div class="content">'+
+               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                   '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>' +
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'    
+        } else if (data.data[0].status == 4) {
+        const status = document.getElementById("status-barang");
+        status.innerHTML =         
+            '<div class="content">'+
+               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                   '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>' +
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'
+        } else if (data.data[0].status == 5) {
+        const status = document.getElementById("status-barang");
+        status.innerHTML =         
+            '<div class="content">'+
+               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                   '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>' +
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #294710;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
+                        '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'
+        }
+    });
+}
