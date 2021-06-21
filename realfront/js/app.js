@@ -804,25 +804,58 @@ function getDetailTracking(id_tracking) {
         console.log('data',data);
 
         const elementK = document.getElementById("deskripsi-barang");
-        elementK.innerHTML = data.data[0].keterangan+' ['+data.data[0].no_bagasi+']';
+        elementK.innerHTML = data.data[0].keterangan+' - '+data.data[0].no_bagasi+' ['+data.data[0].keterangan_val+']';
 
         if (data.data[0].status == 1) {
         const status = document.getElementById("status-barang");
         status.innerHTML =         
             '<div class="content">'+
-               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+               '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
                         '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
                    '</div>'+
             '</div>'+
+            '<div class="small-divider"></div>' +
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Sampai</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sudah sampai di tempat tujuan</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
+                    '</div>'+
+            '</div>'+
+            '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 2) {
         const status = document.getElementById("status-barang");
         status.innerHTML =         
             '<div class="content">'+
-               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+               '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
@@ -831,19 +864,44 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>' +
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
                         '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
                     '</div>'+
             '</div>'+
-            '<div class="small-divider"></div>'    
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Sampai</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sudah sampai di tempat tujuan</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
+                    '</div>'+
+            '</div>'+
+            '<br>'+
+            '<div class="small-divider"></div>'
         } else if (data.data[0].status == 3) {
         const status = document.getElementById("status-barang");
         status.innerHTML =         
             '<div class="content">'+
-               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+               '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
@@ -852,7 +910,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>' +
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
@@ -861,19 +919,36 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
                         '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
                     '</div>'+
             '</div>'+
-            '<div class="small-divider"></div>'    
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Sampai</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sudah sampai di tempat tujuan</p>'+
+                    '</div>'+
+            '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
+                    '</div>'+
+            '</div>'+
+            '<br>'+
+            '<div class="small-divider"></div>'
         } else if (data.data[0].status == 4) {
         const status = document.getElementById("status-barang");
         status.innerHTML =         
             '<div class="content">'+
-               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+               '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
@@ -882,7 +957,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>' +
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
@@ -891,7 +966,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
@@ -900,19 +975,28 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
-                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
-                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Sampai</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Barang/bagasi sudah sampai di tempat tujuan</p>'+
                         '<p style="text-align: justify; font-size: 10px;">PIC: '+data.data[0].nama+' | '+data.data[0].no_hp+'</p>'+
                     '</div>'+
             '</div>'+
+            '<div class="small-divider"></div>'+
+            '<div class="content">'+
+                '<i class="" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #000000;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                    '<div class="title-name">'+
+                        '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
+                        '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
+                    '</div>'+
+            '</div>'+
+            '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 5) {
         const status = document.getElementById("status-barang");
         status.innerHTML =         
             '<div class="content">'+
-               '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+               '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Pooling</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang sudah diserahkan ke Panitia dan sudah mendapatkan nomor bagasi</p>'+
@@ -921,7 +1005,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>' +
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #7ee551;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Dalam Perjalanan</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang diantar ke tempat tujuan menginap</p>'+
@@ -930,7 +1014,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #15a301;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
@@ -939,7 +1023,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #457c19;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Check In</p>'+
                         '<p style="text-align: left; font-size: 12px;">Barang/bagasi sedang dalam proses check-in di tempat tujuan</p>'+
@@ -948,7 +1032,7 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<div class="small-divider"></div>'+
             '<div class="content">'+
-                '<i class="" style="width: 60px;height: 60px;line-height: 40px;text-align: center;background: #294710;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
+                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #294710;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
                     '<div class="title-name">'+
                         '<p style="text-align: left; color: #00ab4e; font-weight: bold;font-size: 12px;">Barang Diterima</p>'+
                         '<p style="text-align: left; font-size: 12px;">Proses Selesai</p>'+
