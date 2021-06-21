@@ -246,6 +246,7 @@ $("#keluar").click(function () {
     localStorage.removeItem("no_kursi");
     localStorage.removeItem("nama_nominasi");
     localStorage.removeItem("jam_login");
+    localStorage.removeItem("id_tracking");
     app.dialog.alert("Sampai Jumpa Kembali :)");
     sessionStorage.removeItem("status");
     cek_login();
@@ -783,7 +784,9 @@ function load_barang() {
                         '<div class="col-30">'+
                             '<div class="content">'+
                                 // '<a class="external" href="https://api.whatsapp.com/send?phone=62' + obj.no_hp.substring(1) + '" target="_blank">' +
-                                '<a href="/getdetailtracking/'+obj.id_tracking+'/"><div class="button">Tracking</div></a>'+
+                                // '<a href="/detailtrack/'+obj.id_tracking+'/"><div class="button">Tracking</div></a>'+
+                                // '<a href="#'+obj.id_tracking+'/"><div class="button" id="btn-track-detail">Tracking</div></a>'+
+                                '<div class="button" id="btn-track-detail" onclick="getDetailTracking('+obj.id_tracking+')">Tracking</div>'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -796,18 +799,21 @@ function load_barang() {
 }
 
 $("#tracking_bottombar").click(function () {
+    localStorage.removeItem("id_tracking");
     load_barang()
 });
 
 function getDetailTracking(id_tracking) {
+    localStorage.setItem("id_tracking", id_tracking);
+
     app.request.json('./php/getbarangtrackingdetail.php?id_tracking='+id_tracking, function (data) {
         console.log('data',data);
 
-        const elementK = document.getElementById("deskripsi-barang");
+        const elementK = document.getElementById("deskripsi-barang-detail");
         elementK.innerHTML = data.data[0].keterangan+' - '+data.data[0].no_bagasi+' ['+data.data[0].keterangan_val+']';
 
         if (data.data[0].status == 1) {
-        const status = document.getElementById("status-barang");
+        const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
             '<div class="content">'+
                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
@@ -852,7 +858,7 @@ function getDetailTracking(id_tracking) {
             '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 2) {
-        const status = document.getElementById("status-barang");
+        const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
             '<div class="content">'+
                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
@@ -898,7 +904,7 @@ function getDetailTracking(id_tracking) {
             '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 3) {
-        const status = document.getElementById("status-barang");
+        const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
             '<div class="content">'+
                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
@@ -945,7 +951,7 @@ function getDetailTracking(id_tracking) {
             '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 4) {
-        const status = document.getElementById("status-barang");
+        const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
             '<div class="content">'+
                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
@@ -993,7 +999,7 @@ function getDetailTracking(id_tracking) {
             '<br>'+
             '<div class="small-divider"></div>'
         } else if (data.data[0].status == 5) {
-        const status = document.getElementById("status-barang");
+        const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
             '<div class="content">'+
                '<i class="ti-check" style="width: 60px;height: 60px;line-height: 60px;text-align: center;background: #c9f175;color: #fff;display: inline-block;border-radius: 50%;margin-right: 15px;font-size: 18px;float: left; "></i>'+
@@ -1042,6 +1048,8 @@ function getDetailTracking(id_tracking) {
             '<div class="small-divider"></div>'
         }
     });
+
+    app.views.main.router.navigate('/detailtrack/');
 }
 
 $("#ambil_merchandise_banner").click(function () {
@@ -1058,4 +1066,27 @@ $("#ambil_merchandise_banner").click(function () {
         document.getElementById('qrmerch').src=data.rootUrl;
     });
     app.views.main.router.navigate('/ambil_merchandise/');
+});
+
+$("#terima-barang-btn").click(function () {
+    var id_tracking = localStorage.getItem("id_tracking");
+    app.dialog.confirm('Barang Sudah Diterima ?', 'Konfimasi Penerimaan', function () {
+        app.request({
+            url: "./php/konfirmasi_barang.php",
+            type: "POST",
+            data: {
+                "id_tracking": id_tracking,
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.error) {
+                    app.dialog.alert(data.pesan);
+                } else {
+                    app.dialog.alert(data.pesan);
+                    app.views.main.router.navigate('/home/');
+                }
+            }
+        });
+    });
 });
