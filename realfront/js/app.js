@@ -1043,3 +1043,19 @@ function getDetailTracking(id_tracking) {
         }
     });
 }
+
+$("#ambil_merchandise_banner").click(function () {
+    var id = 10;
+    var nik = localStorage.getItem("nik_pegawai");
+
+    app.request.json('./php/generatemerch.php?id='+id+'&nik='+nik, function (data) {
+
+        console.log(data);
+        
+        const element = document.getElementById("nama");
+        element.innerHTML = data.nama;
+        
+        document.getElementById('qrmerch').src=data.rootUrl;
+    });
+    app.views.main.router.navigate('/ambil_merchandise/');
+});

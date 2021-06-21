@@ -252,4 +252,9 @@ var routes = [
       }
     }
   },
+
+  {
+    path: '/ambil_merchandise/',
+    pageName: 'ambil_merchandise',
+  },
 ];
