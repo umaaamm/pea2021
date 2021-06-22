@@ -382,16 +382,19 @@ $("#rundown1").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
@@ -413,16 +416,19 @@ $("#rundown2").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
@@ -444,16 +450,19 @@ $("#rundown3").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
@@ -475,16 +484,19 @@ $("#rundown4").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Talent: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
@@ -506,16 +518,19 @@ $("#rundown5").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Note: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
@@ -537,16 +552,19 @@ $("#rundown6").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 14px";>'+count+'. '+obj.aktivitas+
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
                     '<tbody>' +
                         '<tr>' +
-                            '<td class="label-cell"> Agenda: '+obj.keterangan_1+'</td>' +
+                            '<td class="label-cell" style="color: #00ab4e; font-size: 13px">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+' WITA</td>' +
                         '</tr>' +
                         '<tr>' +
-                            '<td class="label-cell"> Note: '+obj.keterangan_2+'</td>' +
+                            '<td class="label-cell" style="font-size: 13px">'+obj.keterangan_1+'</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td class="label-cell" style="font-size: 13px"> Note: '+obj.keterangan_2+'</td>' +
                         '</tr>' +
                     '</tbody>' +
                 '</table>' +
