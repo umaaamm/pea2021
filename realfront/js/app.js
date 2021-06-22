@@ -179,10 +179,9 @@ function getListNominasi(id) {
             '<div class="content">' +
             '<img src="images/vita/user.png" alt="" width="120px">' +
             '<div class="title-name">' +
-            ' <h5>'+obj.nama_pegawai+'</h5>' +
-            '<a>'+obj.nm_unit+'</a>' +
-            '<p>Kategori:</p>' +
+            ' <h5 style="font-size: 22px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
             ' <p>'+obj.nama_ketegori+'</p>' +
+            '<p style="color: #00ab4e;">'+obj.nm_unit+'</p>' +
             '</div>' +
             '</div></a><br>'+
             '<div class="small-divider"></div>'

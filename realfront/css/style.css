@@ -553,7 +553,7 @@ ul li {
     font-color: #000;
 }
 .categories-home .content i {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 10px;
     display: inline-block;
     width: 70px;
@@ -2121,7 +2121,7 @@ ul li {
     position: relative;
     width: 120px;
     height: 120px;
-    background: #4fa149;
+    background: #f1f1f1;
     margin: auto;
     margin-bottom: 20px;
     border-radius: 50%;
@@ -2219,11 +2219,11 @@ ul li {
     float: left;
 }*/
 .notifi .content img {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
     text-align: center;
-    background: #c6c6c6;
+    background: #f1f1f1;
     color: #fff;
     display: inline-block;
     border-radius: 50%;
