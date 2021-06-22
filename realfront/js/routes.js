@@ -262,4 +262,13 @@ var routes = [
     path: '/detailtrack/',
     pageName: 'detailtrack',
   },
+
+  {
+    path: '/sambutan-dirut/',
+    url: './sambutan-dirut.html',
+  },
+  {
+    path: '/sambutan-dirsdm/',
+    url: './sambutan-dirsdm.html',
+  },
 ];
