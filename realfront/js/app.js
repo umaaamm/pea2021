@@ -382,7 +382,7 @@ $("#rundown1").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
@@ -413,7 +413,7 @@ $("#rundown2").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
@@ -444,7 +444,7 @@ $("#rundown3").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
@@ -475,7 +475,7 @@ $("#rundown4").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +
@@ -506,7 +506,7 @@ $("#rundown5").click(function () {
             var obj = data.data[i];
             text += 
             '<div class="accordion-item-toggle">' +
-                '<p style="font-size: 11px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
+                '<p style="font-size: 12px";>'+count+'. '+obj.aktivitas+' <span style="color: #00ab4e; text-align: left; float: right;">'+obj.waktu_mulai.substring(0,5)+' s.d. '+obj.waktu_selesai.substring(0,5)+'</span></p>' +
             '</div>' +
             '<div class="data-table">' +
                 '<table>' +

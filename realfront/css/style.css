@@ -52,7 +52,6 @@ placeholder
 
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
@@ -61,6 +60,14 @@ h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #444;
+}
+
+h3 {
+    line-height: 130%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #444;  
 }
 
 h1 {
@@ -92,6 +99,8 @@ h6 {
 
 p {
     margin: 0;
+    font-size: 14px;
+    color: #000;
 }
 
 img {
@@ -136,12 +145,13 @@ ul li {
 }
 
 .wrap-title {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .wrap-title h3 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 800;
+    
 }
 
 .section-wrapper {
@@ -262,7 +272,20 @@ ul li {
 }
 .md .navbar.navbar-home .navbar-inner .title {
     width: 100%;
+    margin-left: -5px;
 }
+
+.md .navbar.navbar-home .navbar-inner .title h5 {
+    width: 100%;
+    font-size: 13px;
+}
+
+.md .navbar.navbar-home .navbar-inner .title h6 {
+    width: 100%;
+    font-size: 11px;
+    font-weight: normal;
+}
+
 .md .navbar.navbar-home .navbar-inner .left i {
     font-size: 18px;
     color: #fff;
@@ -490,7 +513,7 @@ ul li {
 }
 .slider .swiper-container .swiper-slide .content img {
     width: 100%;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 .slider .swiper-container .swiper-slide .content .caption {
     position: absolute;
@@ -523,14 +546,20 @@ ul li {
 .categories-home .content {
     text-align: center;
 }
+
+.categories-home .content a {
+    text-align: center;
+    font-size: 15px;
+    font-color: #000;
+}
 .categories-home .content i {
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 10px;
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background: #4fa149;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    background: linear-gradient(360deg, rgba(0,129,59,1) 0%, rgba(9,121,38,1) 35%, rgba(0,171,78,1) 100%);
     border-radius: 50%;
     color: #fff;
 }
@@ -557,8 +586,8 @@ ul li {
 }
 .categories .content img {
     width: 100%;
-    height: 180px;
-    border-radius: 3px;
+    height: 100%;
+    border-radius: 5px;
 }
 .categories .content .title {
     position: absolute;
@@ -615,7 +644,7 @@ ul li {
     margin-bottom: 15px;
 }
 .promotion .swiper-container .swiper-slide .first-content .view-all-link {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     color: #00ab4e;
     margin-top: 15px;
@@ -636,12 +665,13 @@ ul li {
     padding: 10px;
 }
 .promotion .swiper-container .swiper-slide .content .text p {
-    margin-bottom: 7px;
+    margin-bottom: 0px;
+    font-weight: bold;
 }
 .promotion .swiper-container .swiper-slide .content .text .price {
-    font-size: 14px;
-    font-weight: 500;
-    color: #0f1c2d;
+    font-size: 12px;
+    font-weight: 300;
+    color: #00813b;
 }
 
 /*product home*/
@@ -1767,13 +1797,13 @@ ul li {
     margin-bottom: 10px;
 }
 .md .order-history .accordion-list .accordion-item .accordion-item-toggle {
-    height: 35px;
-    line-height: 35px;
+    height: 50px;
+    line-height: 50px;
     background: #eee;
     padding: 0 16px;
     font-size: 14px;
     font-weight: 400;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
     color: #333;
 }
 .md .order-history .accordion-list .accordion-item .accordion-item-toggle span {
@@ -1854,10 +1884,11 @@ ul li {
     background: #eee;
     padding: 0 16px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
     border-radius: 3px 3px 0 0;
     color: #333;
 }
+
 .md .tracking-order .accordion-list .accordion-item .accordion-item-toggle span {
     float: right;
     line-height: 35px;
@@ -1881,6 +1912,7 @@ ul li {
     color: #333;
     border-radius: 3px;
 }
+
 .md .tracking-order .accordion-list .accordion-item .accordion-item-content .info-product-order-wrapper .data-table table thead th {
     height: 36px;
     font-size: 14px;
@@ -2191,7 +2223,7 @@ ul li {
     height: 80px;
     line-height: 80px;
     text-align: center;
-    background: #4fa149;
+    background: #c6c6c6;
     color: #fff;
     display: inline-block;
     border-radius: 50%;
