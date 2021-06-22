@@ -19,30 +19,13 @@
 
 	$nik_pegawai        = $sql[0]->nik_pegawai;
 	$nama               = $sql[0]->nama_pegawai;
-	$id_event_pea 		= $_GET['id'];
+	$id_event_pea 		= '2';
 	$jabatan           	= $sql[0]->jabatan;
 	$no_hp              = $sql[0]->hp;
 	$no_kursi           = $sql[0]->no_kursi;
 	$unit_kerja        	= $sql[0]->unit;
 
-	if ($id_event_pea == '10') {
-		$nama_event        	= 'Grand Final Group 1';
-	}
-	else if ($id_event_pea == '11') {
-		$nama_event        	= 'Grand Final Group 2';
-	}
-	else if ($id_event_pea == '12') {
-		$nama_event        	= 'Grand Final Group 3';
-	}
-	else if ($id_event_pea == '13') {
-		$nama_event        	= 'Grand Final Group 4';
-	}
-	else if ($id_event_pea == '20') {
-		$nama_event        	= 'PEA 2021';
-	}
-	else if ($id_event_pea == '30') {
-		$nama_event        	= 'Bali City Tour';
-	}
+	$nama_event        	= 'Pengambilan Merchandise';
 
 	$size               = "285x285";
 	$encoding           = "UTF-8";

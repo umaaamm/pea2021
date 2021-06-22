@@ -86,7 +86,7 @@ class Merchandise extends MY_Controller {
 		$data['unit_kerja'] = $splittedstring[6];
 		$data['nama_event'] = $splittedstring[7];
 
-		if(strlen($data['nik']) == 6){
+		if(strlen($data['nik_pegawai']) == 6){
 			$sql = "SELECT * FROM tb_merchandise_pea where nik_pegawai='".$data['nik_pegawai']."'";
 			$cek = $this->db->query($sql)->num_rows();
 			if ($cek<=0){
