@@ -99,7 +99,7 @@ h6 {
 
 p {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #000;
 }
 
@@ -149,7 +149,7 @@ ul li {
 }
 
 .wrap-title h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 800;
     
 }
@@ -277,12 +277,12 @@ ul li {
 
 .md .navbar.navbar-home .navbar-inner .title h5 {
     width: 100%;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .md .navbar.navbar-home .navbar-inner .title h6 {
     width: 100%;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: normal;
 }
 
@@ -553,7 +553,7 @@ ul li {
     font-color: #000;
 }
 .categories-home .content i {
-    font-size: 24px;
+    font-size: 2.5em;
     margin-bottom: 10px;
     display: inline-block;
     width: 70px;
