@@ -57,6 +57,7 @@ $("#masuk").click(function () {
                 localStorage.setItem("password", data[0].password);
                 localStorage.setItem("no_kursi", data[0].no_kursi);
                 localStorage.setItem("nama_nominasi", data[0].nama_nominasi);
+                localStorage.setItem("foto_profil", data[0].foto);
 
                 var today = new Date();
                 var start = today.getHours();
@@ -177,7 +178,7 @@ function getListNominasi(id) {
             var obj = data.data[i];
             text += '<a href="/getdetailnominasi/'+obj.nik_pegawai+'/">' +
             '<div class="content">' +
-            '<img src="images/vita/user.png" alt="" width="120px">' +
+            '<img src="https://dev.pea2021.info/images/vita/peserta/'+obj.foto+'" alt="" width="120px">' +
             '<div class="title-name">' +
             ' <h5 style="font-size: 22px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
             ' <p>'+obj.nama_ketegori+'</p>' +
@@ -198,6 +199,8 @@ function getDetailNominasi(nik) {
         //title
         const nama_nominator = document.getElementById("nama_nominator");
         nama_nominator.innerHTML = data.data_detail[0].nama_pegawai;
+        //foto
+        document.getElementById('foto_akun_nominasi').src='https://dev.pea2021.info/images/vita/peserta/'+data.data_detail[0].foto;;
         //nama
         const nama = document.getElementById("nama_detail");
         nama.innerHTML = data.data_detail[0].nama_pegawai;
@@ -220,7 +223,7 @@ function getDetailNominasi(nik) {
         for (i = 0; i < data.data.length; i++) {
             var obj = data.data[i];
             text += '<div class="content">' +
-            '<img src="images/vita/user.png" alt="" width="120px">' +
+            '<img src="https://dev.pea2021.info/images/vita/peserta/'+obj.foto+'" alt="" width="120px">' +
             '<div class="title-name">' +
             ' <h5>'+obj.nama_pegawai+'</h5>' +
             '<a>'+obj.nm_unit+'</a>' +
@@ -338,6 +341,9 @@ $("#akun_bottombar").click(function () {
                 
                 const kursi_akun = document.getElementById("kursi_akun");
                 kursi_akun.innerHTML = data[0].no_kursi;
+
+                document.getElementById('foto_akun').src='https://dev.pea2021.info/images/vita/peserta/'+localStorage.getItem("foto_profil");
+
             }
         }
     });
@@ -364,10 +370,13 @@ function fill_userdata() {
     console.log(localStorage.getItem("nama"));
     console.log(localStorage.getItem("jam_login"));
     console.log(sessionStorage.getItem("status"));
+    console.log(localStorage.getItem("foto_profil"));
 
     //fill nama di selamat datang
     const nama_header = document.getElementById("nama");
     nama_header.innerHTML = localStorage.getItem("nama");
+
+    document.getElementById('foto_toolbar').src='https://dev.pea2021.info/images/vita/peserta/'+localStorage.getItem("foto_profil");
 }
 
 $("#rundown1").click(function () {
