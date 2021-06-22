@@ -810,7 +810,7 @@ function getDetailTracking(id_tracking) {
         console.log('data',data);
 
         const elementK = document.getElementById("deskripsi-barang-detail");
-        elementK.innerHTML = data.data[0].keterangan+' - '+data.data[0].no_bagasi+' ['+data.data[0].keterangan_val+']';
+        elementK.innerHTML = data.data[0].no_bagasi+' ['+data.data[0].keterangan_val+']';
 
         if (data.data[0].status == 1) {
         const status = document.getElementById("status-barang-detail");
@@ -857,6 +857,9 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<br>'+
             '<div class="small-divider"></div>'
+
+            $("#terima-barang-btn").show();
+            $("#terima-barang-btn-done").hide();
         } else if (data.data[0].status == 2) {
         const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
@@ -903,6 +906,9 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<br>'+
             '<div class="small-divider"></div>'
+
+            $("#terima-barang-btn").show();
+            $("#terima-barang-btn-done").hide();
         } else if (data.data[0].status == 3) {
         const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
@@ -950,6 +956,9 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<br>'+
             '<div class="small-divider"></div>'
+
+            $("#terima-barang-btn").show();
+            $("#terima-barang-btn-done").hide();
         } else if (data.data[0].status == 4) {
         const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
@@ -998,6 +1007,9 @@ function getDetailTracking(id_tracking) {
             '</div>'+
             '<br>'+
             '<div class="small-divider"></div>'
+
+            $("#terima-barang-btn").show();
+            $("#terima-barang-btn-done").hide();
         } else if (data.data[0].status == 5) {
         const status = document.getElementById("status-barang-detail");
         status.innerHTML =         
@@ -1046,6 +1058,9 @@ function getDetailTracking(id_tracking) {
                     '</div>'+
             '</div>'+
             '<div class="small-divider"></div>'
+
+            $("#terima-barang-btn").hide();
+            $("#terima-barang-btn-done").show();
         }
     });
 
