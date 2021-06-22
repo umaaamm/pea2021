@@ -271,4 +271,25 @@ var routes = [
     path: '/sambutan-dirsdm/',
     url: './sambutan-dirsdm.html',
   },
+
+  {
+    path: '/venue-sekretariat/',
+    url: './venue-sekretariat.html',
+  },
+  {
+    path: '/venue-kesehatan/',
+    url: './venue-kesehatan.html',
+  },
+  {
+    path: '/venue-musholla/',
+    url: './venue-musholla.html',
+  },
+  {
+    path: '/venue-restaurant/',
+    url: './venue-restaurant.html',
+  },
+  {
+    path: '/venue-swimmingpool/',
+    url: './venue-swimmingpool.html',
+  },
 ];
