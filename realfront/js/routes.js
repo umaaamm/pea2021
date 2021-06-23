@@ -306,4 +306,8 @@ var routes = [
     path: '/venue-swimmingpool/',
     url: './venue-swimmingpool.html',
   },
+  {
+    path: '/pea-info/',
+    url: './pea-info.html',
+  },
 ];
