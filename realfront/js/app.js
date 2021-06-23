@@ -336,7 +336,12 @@ $("#akun_bottombar").click(function () {
                 jabatan_akun.innerHTML = data[0].jabatan;
 
                 const nominasi_akun = document.getElementById("nominasi_akun");
-                nominasi_akun.innerHTML = data[0].nama_nominasi;
+                if (nik_pegawai == 'P84023') {
+                    nominasi_akun.innerHTML = data[0].nama_nominasi+' & The Best Suggestion System';                    
+                }
+                else {
+                    nominasi_akun.innerHTML = data[0].nama_nominasi;                    
+                }
                 
                 const kursi_akun = document.getElementById("kursi_akun");
                 kursi_akun.innerHTML = data[0].no_kursi;
@@ -596,7 +601,12 @@ $("#rundown1-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Regional Office of The Year';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
@@ -621,7 +631,12 @@ $("#rundown2-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Regional Office of The Year';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
@@ -646,7 +661,12 @@ $("#rundown3-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Regional Office of The Year';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
@@ -671,7 +691,12 @@ $("#rundown4-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Regional Office of The Year';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
@@ -696,7 +721,12 @@ $("#rundown5-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Regional Office of The Year';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
@@ -721,7 +751,12 @@ $("#rundown6-btn").click(function () {
         document.getElementById('qrtes').src=data.rootUrl;
 
         const nom = document.getElementById("nominasi_qr");
-        nom.innerHTML = data.nominasi_nama;
+        if (nik == 'P84023') {
+            nom.innerHTML = data.nominasi_nama+' & The Best Suggestion System';                    
+        }
+        else {
+            nom.innerHTML = data.nominasi_nama;                    
+        }
 
         const seat = document.getElementById("kursi_qr");
         seat.innerHTML = data.no_kursi;
