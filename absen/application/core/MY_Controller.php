@@ -38,6 +38,8 @@ class MY_Controller extends CI_Controller {
     public $controller_tracking_barang      = "tracking";
     // LAPORAN MERCHANDISE
     public $controller_merchandiseLaporan = "merchandiseLaporan";
+    public $controller_testimoni = "testimoni";
+
     
     # ID Controller
     public $setting_id                  = 9000;
@@ -53,6 +55,8 @@ class MY_Controller extends CI_Controller {
     public $tracking_barang_id           = 1004;
     public $merchandiseLaporan           = 1006;
     public $merchandise           = 1005;
+    public $testimoni           = 1007;
+
 
 
     # TBL TEMPLATE
