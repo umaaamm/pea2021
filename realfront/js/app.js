@@ -1240,3 +1240,7 @@ $("#terima-barang-btn").click(function () {
         });
     });
 });
+
+$("#lihat-testimoni").click(function () {
+    app.views.main.router.navigate('/listtestimoni/');
+});
