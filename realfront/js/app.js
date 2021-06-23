@@ -122,6 +122,31 @@ function getKontak() {
     });
 }
 
+function getListTestimoni() {
+    app.request.json('./php/listtestimoni.php', function (data) {
+        var text = "";
+        var i = "";
+        for (i = 0; i < data.data.length; i++) {
+            var obj = data.data[i];
+            text += 
+                '<div class="content">' +
+                '<img src="https://dev.pea2021.info/images/vita/peserta/P84023.png" alt="" width="120px" />' +
+                    '<div class="title-name">' +
+                        // '<h5 style="margin-top:10px;">' + obj.pesan + '</h5>'+
+                        '<p style="margin-top:10px;text-align:justify;"> <b>" </b>' + obj.pesan + '<b> "</b></p><span style="color:#00ab4e;">'+ obj.nama_pegawai+'</span><br><br>' +
+                        // '<div class="item-subtitle" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:5px;font-size:14px;background-color:#00ab4e;color:#ffffff;text-align=center;float:right;"><b>' + obj.no_hp + '</div>' +
+                        // '<div class="button" style="background-color: green;display: table;margin: 0px 0px 0px 0px;padding:0px 15px 0px 15px;font-size:14px;background-color:#00ab4e;color:#ffffff;text-align:center;float:right;width:150px;border-radius: 5px;"><b>' + obj.no_hp + '</b>' + '</div>' +
+                    '</div>' +
+                '</div>' +
+                // '</a>' +
+                '<div class="small-divider"></div>'
+
+        }
+        const elementK = document.getElementById("testi");
+        elementK.innerHTML = text;
+    });
+}
+
 function getNominasi() {
     app.request.json('./php/nominasi.php', function (data) {
         var text = "";
@@ -313,6 +338,44 @@ $("#update_password").click(function () {
     });
 });
 
+//testimoni
+$("#simpan_testimoni").click(function () {
+    console.log("wlkwlwlwllssslsl");
+    var testimoni = $("#testimoni").val();
+
+    var len = testimoni.length;
+
+    if (len >= 120) {
+        app.dialog.alert("Maksimal pesan adalah 120 huruf");
+        return;        
+    }
+
+    app.request({
+        url: "./php/testimoni.php",
+        type: "POST",
+        data: {
+            "nik_pegawai": localStorage.getItem("nik_pegawai"),
+            "nama_pegawai": localStorage.getItem("nama"),
+            "pesan": testimoni,
+            "foto": localStorage.getItem('foto_profil')
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('lllll',data);
+            if (data.error) {
+                app.dialog.alert("Pesan Testimoni anda gagal disimpan.");
+                app.dialog.alert(data.pesan);
+                $("#testimoni").val("");
+            } else {
+                $("#testimoni").val("");
+                app.dialog.alert(data.pesan);
+                app.views.main.router.navigate('/home/');
+            }
+        }
+    });
+});
+//end testimoni
+
 $("#akun_bottombar").click(function () {
     console.log('get_akun_detail')
     var nik_pegawai = localStorage.getItem("nik_pegawai");
@@ -381,6 +444,7 @@ function fill_userdata() {
     nama_header.innerHTML = localStorage.getItem("nama");
 
     document.getElementById('foto_toolbar').src='https://dev.pea2021.info/images/vita/peserta/'+localStorage.getItem("foto_profil");
+
 }
 
 $("#rundown1").click(function () {
@@ -782,6 +846,21 @@ $("#generate-no").click(function () {
         dropdown.innerHTML = text;
     });
     app.views.main.router.navigate('/registerbarang/');
+});
+
+$("#testimoni_anda").click(function () {
+    console.log("wlwlwlwl");
+    app.request.json('./php/getusertestimoni.php?nik_pegawai='+localStorage.getItem("nik_pegawai"), function (data) {
+        console.log('data',data);
+        if(data.hasil){
+            console.log("ksini");
+            app.views.main.router.navigate('/listtestimoni/');
+        }else{
+            console.log("ksna");
+
+            app.views.main.router.navigate('/testimoni/');
+        }
+    });
 });
 
 $("#register_barang").click(function () {

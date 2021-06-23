@@ -239,8 +239,22 @@ var routes = [
     pageName: 'absensi',
   },
   {
+    path: '/listtestimoni/',
+    url: 'listtestimoni.html',
+    on:{
+      pageInit: function(e, page){
+        getListTestimoni();
+      }
+    }
+  },
+  {
     path: '/registerbarang/',
     pageName: 'registerbarang',
+  },
+
+  {
+    path: '/testimoni/',
+    pageName: 'testimoni_form',
   },
 
   {
