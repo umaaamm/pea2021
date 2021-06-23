@@ -310,4 +310,8 @@ var routes = [
     path: '/pea-info/',
     url: './pea-info.html',
   },
+  {
+    path: '/panitia/',
+    url: './panitia.html',
+  },
 ];
