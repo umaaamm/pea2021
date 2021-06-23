@@ -130,7 +130,7 @@ function getListTestimoni() {
             var obj = data.data[i];
             text += 
                 '<div class="content">' +
-                '<img src="https://dev.pea2021.info/images/vita/peserta/P84023.png" alt="" width="120px" />' +
+                '<img src="https://dev.pea2021.info/images/vita/peserta/'+obj.foto+'" alt="" width="120px" />' +
                     '<div class="title-name">' +
                         // '<h5 style="margin-top:10px;">' + obj.pesan + '</h5>'+
                         '<p style="margin-top:10px;text-align:justify;"> <b>" </b>' + obj.pesan + '<b> "</b></p><span style="color:#00ab4e;">'+ obj.nama_pegawai+'</span><br><br>' +
@@ -340,13 +340,12 @@ $("#update_password").click(function () {
 
 //testimoni
 $("#simpan_testimoni").click(function () {
-    console.log("wlkwlwlwllssslsl");
     var testimoni = $("#testimoni").val();
 
     var len = testimoni.length;
 
     if (len >= 120) {
-        app.dialog.alert("Maksimal pesan adalah 120 huruf");
+        app.dialog.alert("Maksimal pesan adalah 120 huruf.");
         return;        
     }
 
@@ -849,15 +848,11 @@ $("#generate-no").click(function () {
 });
 
 $("#testimoni_anda").click(function () {
-    console.log("wlwlwlwl");
     app.request.json('./php/getusertestimoni.php?nik_pegawai='+localStorage.getItem("nik_pegawai"), function (data) {
         console.log('data',data);
         if(data.hasil){
-            console.log("ksini");
             app.views.main.router.navigate('/listtestimoni/');
         }else{
-            console.log("ksna");
-
             app.views.main.router.navigate('/testimoni/');
         }
     });
