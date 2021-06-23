@@ -205,7 +205,7 @@ function getListNominasi(id) {
             '<div class="content">' +
             '<img src="https://dev.pea2021.info/images/vita/peserta/'+obj.foto+'" alt="" width="120px">' +
             '<div class="title-name">' +
-            ' <h5 style="font-size: 22px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
+            ' <h5 style="font-size: 20px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
             ' <p>'+obj.nama_ketegori+'</p>' +
             '<p style="color: #00ab4e;">'+obj.nm_unit+'</p>' +
             '</div>' +
@@ -250,7 +250,7 @@ function getDetailNominasi(nik) {
             text += '<div class="content">' +
             '<img src="https://dev.pea2021.info/images/vita/peserta/'+obj.foto+'" alt="" width="120px">' +
             '<div class="title-name">' +
-            ' <h5 style="font-size: 22px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
+            ' <h5 style="font-size: 20px;margin-top: 2px;" >'+obj.nama_pegawai+'</h5>' +
             ' <p>'+obj.nama_ketegori+'</p>' +
             '<p style="color: #00ab4e;">'+obj.nm_unit+'</p>' +
             '</div>' +
