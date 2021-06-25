@@ -326,7 +326,7 @@
                                             <thead>
                                                 <tr>
                                                   <th>NIK - Nama</th>
-                                                  <th>No Handphone</th>
+                                                  <!-- <th>No Handphone</th> -->
 												  <th>Unit Kerja</th>
                                                   <th>Tanggal Absen</th>
                                                   <th>Keterangan</th>
@@ -339,7 +339,7 @@
                                             ?>
                                                 <tr>
                                                   <td><?php echo $list['nama']; ?><br><b><?php echo $list['nik_pegawai']; ?><b></td>
-                                                  <td><?php echo $list['no_hp']; ?></td>
+                                                  <!-- <td><?php echo $list['no_hp']; ?></td> -->
 												  <td><?php echo $list['unit_kerja']; ?></td>
                                                   <td><?php echo $list['tanggal_kehadiran']; ?></td>
                                 
